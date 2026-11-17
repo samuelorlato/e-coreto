@@ -1,0 +1,4 @@
+# Copie para application-local.properties (NÃO commitar) e preencha:
+db.url=jdbc:oracle:thin:@oracle.fiap.com.br:1521:ORCL
+db.user=SEU_RM
+db.password=SUA_SENHA
