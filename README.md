@@ -194,8 +194,8 @@ config/     conexão com o banco e inicialização do servidor
 `users` · `addresses` · `proposals` · `categories` · `proposal_categories` (N:N) · `votes` (N:N com atributos) · `official_responses` · `proposal_status_history` · `system_settings`
 
 Os diagramas estão em [`docs/`](docs/):
-- `docs/class-diagram.(pdf|png)`: diagrama de classes (UML)
-- `docs/er-diagram.(pdf|png)`: diagrama entidade-relacionamento
+- `docs/class-diagram.png`: diagrama de classes (UML)
+- `docs/er-diagram.png`: diagrama entidade-relacionamento
 
 ---
 
@@ -205,8 +205,8 @@ Os diagramas estão em [`docs/`](docs/):
 
 1. **Pré-requisitos:** `[Java x]`, `[Maven/Gradle ou IDE]`, acesso a um banco Oracle.
 2. **Banco de dados:** executar `[caminho]/script.sql` do início ao fim (cria as tabelas e a carga inicial).
-3. **Configuração:** informar URL, usuário e senha do banco em `[arquivo/variáveis]`.
-4. **Subir a API:** `[comando ou classe Main]`. A API sobe em `http://localhost:[porta]`.
+3. **Configuração:** informar URL, usuário e senha do banco no arquivo `application.properties`.
+4. **Subir a API:** `[comando ou classe Main]`. A API sobe em `http://localhost:8080`.
 5. **Abrir a interface:** abrir `[caminho]/index.html` no navegador.
 6. **Usuários de demonstração:** `[e-mail / senha de uma autoridade e de um morador]`.
 
