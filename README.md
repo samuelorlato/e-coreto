@@ -210,8 +210,9 @@ Os diagramas estão em [`docs/`](docs/):
 > **TODO (preencher antes da entrega):** o README precisa permitir rodar o projeto seguindo só estas instruções.
 
 1. **Pré-requisitos:** `Java 17+`, `Maven 3.6.3+`, acesso a um banco Oracle.
-2. **Banco de dados:** executar `database/script.sql` do início ao fim (cria as tabelas e a carga inicial).
-3. **Configuração:** informar URL, usuário e senha do banco no arquivo `application.properties`.
+2. **Configure a conexão** em `src/main/resources/application.properties`
+   (`db.url`, `db.user`, `db.password`).
+3. **Banco de dados:** `mvn compile exec:java -Dmain.class=br.com.fiap.ecoreto.tools.DatabaseSetup`
 4. **Subir a API:** `mvn compile exec:java`. A API sobe em `http://localhost:8080`.
 5. **Abrir a interface:** abrir `[caminho]/index.html` no navegador.
 6. **Usuários de demonstração:** `[e-mail / senha de uma autoridade e de um morador]`.
