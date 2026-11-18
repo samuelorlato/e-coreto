@@ -1,3 +1,9 @@
+-- CONTAS DE DEMONSTRAÇÃO (senha de todas: Demo@2026)
+--   Autoridade: helena.duarte@prefeitura.exemplo.br
+--   Autoridade: carlos.mendes@prefeitura.exemplo.br
+--   Morador:    ana.souza@email.exemplo.br  (e os demais moradores seed)
+--   Hash: Base64(SHA-256(salt || senha)), salt de 16 bytes em Base64.
+
 BEGIN
 FOR v IN (SELECT view_name FROM user_views WHERE view_name = 'ACTIVE_PROPOSALS') LOOP
         EXECUTE IMMEDIATE 'DROP VIEW ' || v.view_name;
