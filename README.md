@@ -215,7 +215,9 @@ Os diagramas estão em [`docs/`](docs/):
 3. **Banco de dados:** `mvn compile exec:java -Dmain.class=br.com.fiap.ecoreto.tools.DatabaseSetup`
 4. **Subir a API:** `mvn compile exec:java`. A API sobe em `http://localhost:8080`.
 5. **Abrir a interface:** abrir `[caminho]/index.html` no navegador.
-6. **Usuários de demonstração:** `[e-mail / senha de uma autoridade e de um morador]`.
+6. **Contas de demonstração** (senha de todas: `Demo@2026`):
+   - Autoridade: `helena.duarte@prefeitura.exemplo.br`
+   - Morador: `ana.souza@email.exemplo.br`
 
 ---
 
