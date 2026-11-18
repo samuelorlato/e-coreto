@@ -181,13 +181,19 @@ As autoridades podem ajustar estes valores sem alterar o código:
 **Organização do código** (camadas separadas, cada uma no seu pacote):
 
 ```
-model/      entidades e enums (BaseEntity, User, Resident, Authority, Proposal, ...)
-dao/        acesso a dados via JDBC (um DAO por entidade)
-service/    regras de negócio (limiar de apoio, permissões, transições de status)
-resource/   endpoints REST (JAX-RS)
-exception/  exceções de negócio e mapeamento para mensagens claras
 config/     conexão com o banco e inicialização do servidor
+dao/        acesso a dados via JDBC (um DAO por entidade)
+exception/  exceções de negócio e mapeamento para mensagens claras
+model/      entidades e enums (BaseEntity, User, Resident, Authority, Proposal, ...)
+resource/   endpoints REST (JAX-RS)
+security/   hash de senha e autenticação
+service/    regras de negócio (limiar de apoio, permissões, transições de status)
+tools/      utilitário de seeds
 ```
+
+Frontend fica em `web/` na raiz do projeto.
+
+O `script.sql` fica em `database/script.sql`.
 
 **Modelo de dados** (identificadores UUID, todas as tabelas com `created_at` e `updated_at`):
 
@@ -203,10 +209,10 @@ Os diagramas estão em [`docs/`](docs/):
 
 > **TODO (preencher antes da entrega):** o README precisa permitir rodar o projeto seguindo só estas instruções.
 
-1. **Pré-requisitos:** `[Java x]`, `[Maven/Gradle ou IDE]`, acesso a um banco Oracle.
-2. **Banco de dados:** executar `[caminho]/script.sql` do início ao fim (cria as tabelas e a carga inicial).
+1. **Pré-requisitos:** `Java 17+`, `Maven 3.6.3+`, acesso a um banco Oracle.
+2. **Banco de dados:** executar `database/script.sql` do início ao fim (cria as tabelas e a carga inicial).
 3. **Configuração:** informar URL, usuário e senha do banco no arquivo `application.properties`.
-4. **Subir a API:** `[comando ou classe Main]`. A API sobe em `http://localhost:8080`.
+4. **Subir a API:** `mvn compile exec:java`. A API sobe em `http://localhost:8080`.
 5. **Abrir a interface:** abrir `[caminho]/index.html` no navegador.
 6. **Usuários de demonstração:** `[e-mail / senha de uma autoridade e de um morador]`.
 
@@ -226,7 +232,11 @@ Todo conteúdo gerado foi lido, revisado e compreendido pela equipe antes de ser
 
 ## 11. Equipe e vídeo pitch
 
-- **Grupo:** `[nome do grupo]`
-- **Integrantes:** `[nome · RM]` (um por linha)
+- **Grupo 5** 
+- **Integrantes:**
+  - RM 562076 - Samuel Trevisan Orlato
+  - [RM] - [Nome completo]
+  - [RM] - [Nome completo]
+  - [RM] - [Nome completo]
+  - [RM] - [Nome completo]
 - **Vídeo pitch:** `[link público]`
-- **Repositório:** `[link]`
