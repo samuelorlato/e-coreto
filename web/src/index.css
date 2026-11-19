@@ -1,0 +1,201 @@
+@import "tailwindcss";
+
+/* Modo escuro pela classe .dark no <html> (definida antes da pintura em index.html). */
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  /* Fontes do sistema: visual moderno sem baixar arquivos (bom para o Lighthouse). */
+  --font-sans: ui-sans-serif, system-ui, -apple-system, "Segoe UI Variable Text", "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+
+  --animate-fade-up: fade-up 0.42s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+  --animate-pop: pop 0.36s cubic-bezier(0.2, 0.7, 0.2, 1);
+  --animate-confetti: confetti 1.5s cubic-bezier(0.15, 0.6, 0.35, 1) both;
+
+  @keyframes fade-up {
+    from {
+      opacity: 0;
+      transform: translateY(8px);
+    }
+    to {
+      opacity: 1;
+      transform: none;
+    }
+  }
+  @keyframes pop {
+    0% {
+      transform: scale(0.9);
+    }
+    60% {
+      transform: scale(1.05);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+  @keyframes confetti {
+    0% {
+      transform: translate(0, 0) rotate(0deg);
+      opacity: 1;
+    }
+    45% {
+      transform: translate(calc(var(--x) * 0.7), var(--y)) rotate(calc(var(--r) * 0.5));
+      opacity: 1;
+    }
+    100% {
+      transform: translate(var(--x), calc(var(--y) + 160px)) rotate(var(--r));
+      opacity: 0;
+    }
+  }
+}
+
+/* Cores semânticas: as telas usam bg-canvas, text-fg, border-line… e o tema troca os valores. */
+@theme inline {
+  --color-canvas: var(--ec-canvas);
+  --color-raised: var(--ec-raised);
+  --color-surface: var(--ec-surface);
+  --color-muted: var(--ec-muted);
+  --color-line: var(--ec-line);
+  --color-line-strong: var(--ec-line-strong);
+  --color-fg: var(--ec-fg);
+  --color-fg-muted: var(--ec-fg-muted);
+  --color-fg-subtle: var(--ec-fg-subtle);
+  --color-accent: var(--ec-accent);
+  --color-accent-hover: var(--ec-accent-hover);
+  --color-accent-soft: var(--ec-accent-soft);
+  --color-on-accent: var(--ec-on-accent);
+  --color-danger: var(--ec-danger);
+  --color-danger-solid: var(--ec-danger-solid);
+  --color-on-danger: var(--ec-on-danger);
+  --color-danger-soft: var(--ec-danger-soft);
+  --color-success: var(--ec-success);
+  /* Par "a favor x contra" validado para daltonismo e contraste nos dois temas. */
+  --color-favor: #0d9488;
+  --color-against: #e34948;
+}
+
+:root {
+  color-scheme: light;
+  --ec-canvas: #ffffff;
+  --ec-raised: #fafaf9;
+  --ec-surface: #ffffff;
+  --ec-muted: #f5f5f4;
+  --ec-line: #e7e5e4;
+  --ec-line-strong: #d6d3d1;
+  --ec-fg: #1c1917;
+  --ec-fg-muted: #57534e;
+  --ec-fg-subtle: #78716c;
+  --ec-accent: #0f766e;
+  --ec-accent-hover: #115e59;
+  --ec-accent-soft: #f0fdfa;
+  --ec-on-accent: #ffffff;
+  --ec-danger: #b91c1c;
+  --ec-danger-solid: #b91c1c;
+  --ec-on-danger: #ffffff;
+  --ec-danger-soft: #fef2f2;
+  --ec-success: #047857;
+}
+
+.dark {
+  color-scheme: dark;
+  --ec-canvas: #0c0a09;
+  --ec-raised: #171412;
+  --ec-surface: #1c1917;
+  --ec-muted: #292524;
+  --ec-line: #292524;
+  --ec-line-strong: #44403c;
+  --ec-fg: #f5f5f4;
+  --ec-fg-muted: #d6d3d1;
+  --ec-fg-subtle: #a8a29e;
+  --ec-accent: #2dd4bf;
+  --ec-accent-hover: #5eead4;
+  --ec-accent-soft: rgb(45 212 191 / 0.12);
+  --ec-on-accent: #042f2e;
+  --ec-danger: #fca5a5;
+  --ec-danger-solid: #f87171;
+  --ec-on-danger: #1c1917;
+  --ec-danger-soft: rgb(248 113 113 / 0.12);
+  --ec-success: #34d399;
+}
+
+@layer base {
+  html {
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    @apply bg-canvas text-fg antialiased;
+  }
+
+  h1,
+  h2,
+  h3 {
+    text-wrap: balance;
+  }
+
+  ::selection {
+    background: color-mix(in oklab, var(--ec-accent) 28%, transparent);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--ec-accent);
+    outline-offset: 2px;
+  }
+
+  summary {
+    cursor: pointer;
+  }
+  summary::-webkit-details-marker {
+    display: none;
+  }
+}
+
+/* Diálogos nativos (<dialog>) com entrada suave. */
+dialog[open] {
+  animation: fade-up 0.22s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+dialog::backdrop {
+  background: rgb(12 10 9 / 0.5);
+  backdrop-filter: blur(3px);
+}
+
+/* Transições entre páginas (View Transitions API, nativa do navegador). */
+.site-header {
+  view-transition-name: site-header;
+}
+::view-transition-old(root) {
+  animation: 140ms ease-in both vt-out;
+}
+::view-transition-new(root) {
+  animation: 260ms cubic-bezier(0.2, 0.7, 0.2, 1) both vt-in;
+}
+::view-transition-group(proposal-title) {
+  animation-duration: 320ms;
+  animation-timing-function: cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+@keyframes vt-out {
+  to {
+    opacity: 0;
+  }
+}
+@keyframes vt-in {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  ::before,
+  ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  ::view-transition-group(*),
+  ::view-transition-old(*),
+  ::view-transition-new(*) {
+    animation: none !important;
+  }
+}
