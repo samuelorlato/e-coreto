@@ -37,7 +37,7 @@ As decisões locais costumam ser tomadas sem ouvir quem mora no lugar. Faltam um
 5. Propostas aprovadas seguem para execução e conclusão, com cada mudança de situação registrada.
 
 ### 1.4 Quais tecnologias serão usadas
-Java com acesso a banco via JDBC (camadas Model, DAO, Service e API REST), banco relacional Oracle, API com JAX-RS/Jersey sobre servidor Grizzly e interface web em HTML, CSS e JavaScript, responsiva. Detalhes na [seção 8](#8-visão-técnica).
+Java com acesso a banco via JDBC (camadas Model, DAO, Service e API REST), banco relacional Oracle, API com JAX-RS/Jersey sobre servidor Grizzly e interface web em React, Tailwind CSS e Vite, responsiva e com tema claro e escuro. Detalhes na [seção 8](#8-visão-técnica).
 
 ### 1.5 Quem participa do ecossistema
 - **Moradores**: propõem, votam e acompanham.
@@ -57,6 +57,8 @@ Java com acesso a banco via JDBC (camadas Model, DAO, Service e API REST), banco
 | Percentual de propostas respondidas pelas autoridades | Transparência |
 | Taxa de execução de propostas aprovadas | Resultado concreto |
 | Votos por região (rua, CEP) e por categoria | Onde estão as demandas |
+
+**Ampliação:** como os critérios de apoio são parâmetros configuráveis e as categorias são criadas pelos próprios moradores, replicar a plataforma para outro bairro ou cidade é cadastrar novos dados, não reescrever código. O passo seguinte previsto é suportar vários bairros numa mesma instalação.
 
 ---
 
@@ -127,8 +129,8 @@ Coletando apoio ──► Aguardando análise ──► Em análise ──► Ap
 
 ### Limiar de apoio
 - **RN-11** Uma proposta atinge o limiar quando cumpre **as duas** condições:
-  1. **Quórum:** número de votos ≥ o *maior* entre o piso mínimo e uma porcentagem do total de moradores cadastrados;
-  2. **Maioria:** pelo menos **60%** dos votos computados são a favor.
+    1. **Quórum:** número de votos ≥ o *maior* entre o piso mínimo e uma porcentagem do total de moradores cadastrados;
+    2. **Maioria:** pelo menos **60%** dos votos computados são a favor.
 - **RN-12** Ao atingir o limiar, a proposta passa sozinha para *Aguardando análise* e **não volta atrás**, mesmo que votos mudem depois.
 - **RN-13** O quórum é dinâmico: acompanha o crescimento da base de moradores. O piso evita que, no início, uma ou duas pessoas decidam.
 
@@ -173,12 +175,12 @@ As autoridades podem ajustar estes valores sem alterar o código:
 
 | Camada | Tecnologia |
 |---|---|
-| Linguagem | Java |
+| Linguagem (back-end) | Java |
 | Banco de dados | Oracle, acessado via JDBC |
 | API | JAX-RS (`jakarta.ws.rs`) com Jersey, sobre Grizzly HttpServer |
-| Interface | HTML semântico, CSS responsivo, JavaScript (consome a API) |
+| Interface | React 19, Tailwind CSS 4, Vite e React Router; responsiva, com tema claro e escuro |
 
-**Organização do código** (camadas separadas, cada uma no seu pacote):
+**Organização do código do back-end** (camadas separadas, cada uma no seu pacote):
 
 ```
 config/     conexão com o banco e inicialização do servidor
@@ -188,10 +190,10 @@ model/      entidades e enums (BaseEntity, User, Resident, Authority, Proposal, 
 resource/   endpoints REST (JAX-RS)
 security/   hash de senha e autenticação
 service/    regras de negócio (limiar de apoio, permissões, transições de status)
-tools/      utilitário de seeds
+tools/      utilitários (DatabaseSetup, SeedPasswordGenerator)
 ```
 
-Frontend fica em `web/` na raiz do projeto.
+O **front-end** fica em `web/` e está documentado em [`web/README.md`](web/README.md). Ele consome a API descrita em [`docs/api.md`](docs/api.md).
 
 O `script.sql` fica em `database/script.sql`.
 
@@ -207,38 +209,118 @@ Os diagramas estão em [`docs/`](docs/):
 
 ## 9. Como executar
 
-> **TODO (preencher antes da entrega):** o README precisa permitir rodar o projeto seguindo só estas instruções.
+O sistema tem três partes que sobem nesta ordem: **banco de dados → API (back-end) → interface (front-end)**. A API e a interface ficam rodando ao mesmo tempo, cada uma no seu terminal.
 
-1. **Pré-requisitos:** `Java 17+`, `Maven 3.6.3+`, acesso a um banco Oracle.
-2. **Configure a conexão** criando o arquivo `src/main/resources/application-local.properties` a partir do `src/main/resources/application-local.properties.example` e troque as variáveis `db.url`, `db.user` e `db.password` para suas credenciais.
-3. **Banco de dados:** `mvn compile exec:java -Dmain.class=br.com.fiap.ecoreto.tools.DatabaseSetup`
-4. **Subir a API:** `mvn compile exec:java`. A API sobe em `http://localhost:8080`.
-5. **Abrir a interface:** abrir `[caminho]/index.html` no navegador.
-6. **Contas de demonstração** (senha de todas: `Demo@2026`):
-   - Autoridade: `helena.duarte@prefeitura.exemplo.br`
-   - Morador: `ana.souza@email.exemplo.br`
+### Pré-requisitos
+
+| Item | Versão |
+|---|---|
+| Java | 17 ou superior |
+| Maven | 3.6.3 ou superior |
+| Node.js (com npm) | 20.19 ou superior (ou 22.12+) |
+| Banco Oracle | acesso a um schema (URL, usuário e senha) |
+
+### 9.1 Banco de dados
+
+1. **Configure a conexão.** Na pasta `src/main/resources/`, copie `application-local.properties.example` para `application-local.properties` e preencha `db.url`, `db.user` e `db.password` com as suas credenciais. Exemplo de formato da URL: `jdbc:oracle:thin:@oracle.fiap.com.br:1521:ORCL`.
+   *(Alternativa: definir as variáveis de ambiente `DB_URL`, `DB_USER` e `DB_PASSWORD`, que têm precedência sobre os arquivos.)*
+2. **Crie as tabelas e a carga inicial.** Na **raiz do projeto**:
+
+   ```
+   mvn compile exec:java -Dmain.class=br.com.fiap.ecoreto.tools.DatabaseSetup
+   ```
+
+   O programa executa o `database/script.sql` e, ao final, lista a quantidade de linhas por tabela. Se algo falhar, mostra o comando com erro e a mensagem do Oracle.
+
+> ⚠️ O script **recria as tabelas do projeto do zero** (apaga as existentes com o mesmo nome). Use um schema dedicado. Também é possível executar o `database/script.sql` como *script* inteiro em um cliente SQL (SQL Developer: F5; DBeaver: Alt+X).
+
+### 9.2 API (back-end)
+
+Ainda na raiz do projeto:
+
+```
+mvn compile exec:java
+```
+
+A API sobe em `http://localhost:8080/api/`. **Deixe este terminal aberto.** Para trocar a porta, altere `server.port` no arquivo de propriedades (e ajuste `VITE_API_URL` no front, veja abaixo).
+
+### 9.3 Interface (front-end)
+
+Em **outro terminal**:
+
+```
+cd web
+npm install
+```
+
+Para a interface conversar com a API real (modo **integrado**, o que grava e lê do Oracle), crie o arquivo `web/.env.local` com o conteúdo:
+
+```
+VITE_USE_MOCK=false
+```
+
+Se a API estiver em outro endereço, acrescente também `VITE_API_URL=http://localhost:8080/api` (este é o valor padrão). Depois:
+
+```
+npm run dev
+```
+
+Acesse **http://localhost:5173**.
+
+> Se você criar ou alterar o `.env.local` com o servidor já rodando, pare-o (`Ctrl+C`) e rode `npm run dev` novamente.
+
+**Dois modos de uso do front:**
+
+| Modo | Como ativar | Dados | Quando usar |
+|---|---|---|---|
+| **Integrado** (recomendado) | `VITE_USE_MOCK=false` em `web/.env.local` | Oracle, via API Java | Uso normal e apresentação do sistema completo |
+| **Simulado** | padrão (sem `.env.local`) | API simulada no navegador, com os dados do `script.sql`; alterações ficam no `localStorage` | Ver a interface sem Java nem Oracle. O link **Restaurar**, no rodapé, volta tudo ao estado inicial |
+
+Outros comandos úteis do front: `npm run build` (gera `web/dist/`) e `npm run preview` (serve o build). Detalhes em [`web/README.md`](web/README.md).
+
+### 9.4 Contas de demonstração
+
+Valem no banco (`script.sql`) e na API simulada. **Senha de todas: `Demo@2026`.**
+
+| Perfil | E-mail |
+|---|---|
+| Autoridade | `helena.duarte@prefeitura.exemplo.br` |
+| Autoridade | `carlos.mendes@prefeitura.exemplo.br` |
+| Morador | `ana.souza@email.exemplo.br` (e os demais moradores de demonstração) |
+
+### 9.5 Problemas comuns
+
+| Sintoma | Causa provável | O que fazer |
+|---|---|---|
+| "Não foi possível conectar ao banco" ao rodar o `DatabaseSetup` | URL, usuário ou senha incorretos | Conferir `db.url`, `db.user` e `db.password` |
+| Erro `ORA-…` durante o script | Usuário sem permissão de criar tabelas ou views | Usar um schema com `CREATE TABLE` e `CREATE VIEW` |
+| Porta 8080 ocupada | Outro programa usando a porta | Mudar `server.port` e ajustar `VITE_API_URL` |
+| O front mostra erro de conexão com o servidor | API fora do ar ou endereço errado | Subir a API (9.2) e conferir `VITE_API_URL` |
+| Votei no front, mas nada muda no banco | Front no modo simulado | Criar `web/.env.local` com `VITE_USE_MOCK=false` e reiniciar o `npm run dev` |
+| Mudei o `.env.local` e nada mudou | O servidor do front não foi reiniciado | `Ctrl+C` e `npm run dev` de novo |
+| `npm install` ou `npm run dev` falha | Node.js antigo | Atualizar para 20.19+ |
 
 ---
 
 ## 10. Uso de IA generativa
 
-> **TODO:** ajustar esta seção ao uso real da equipe antes de entregar.
+Declaração das ferramentas de IA usadas no projeto e da finalidade de cada uma:
 
 | Ferramenta | Para quê foi usada |
 |---|---|
-| Claude (Anthropic) | Brainstorm e escolha da ideia, revisão de regras de negócio e da modelagem de dados, rascunho desta documentação |
+| Claude (Anthropic) | Brainstorm e escolha da ideia; revisão das regras de negócio e da modelagem de dados (UML e ER); estrutura do projeto e das configurações; geração do `script.sql` (esquema e carga inicial), do `DatabaseSetup` e dos utilitários de senha; rascunho desta documentação; apoio à implementação do back-end (DAOs, services e endpoints) e do front-end (`web/`). |
 
-Todo conteúdo gerado foi lido, revisado e compreendido pela equipe antes de ser incorporado. As decisões de projeto, a implementação e os diagramas são de autoria do grupo.
+Todo código e texto gerado com apoio de IA foi lido, testado, revisado e compreendido pela equipe antes de ser incorporado. As decisões de projeto (ideia, regras de negócio e modelagem) são do grupo.
 
 ---
 
 ## 11. Equipe e vídeo pitch
 
-- **Grupo 5** 
+- **Grupo 5**
 - **Integrantes:**
-  - RM 562076 - Samuel Trevisan Orlato
-  - [RM] - [Nome completo]
-  - [RM] - [Nome completo]
-  - [RM] - [Nome completo]
-  - [RM] - [Nome completo]
+    - RM 562076 - Samuel Trevisan Orlato
+    - RM 564281 - Gabriel Kenji Yoshida Fudizachi
+    - RM 565879 - Jhonatan Talaveiro Pacheco
+    - RM 561510 - Nathan de Melo Soares
+    - RM 563597 - Davyd Neves Evangelista da Silva
 - **Vídeo pitch:** `[link público]`
