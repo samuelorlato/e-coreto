@@ -1,0 +1,1024 @@
+{
+  "systemSettings": [
+    {
+      "id": "ffe1205a-90da-44b5-a951-b26d4f196f36",
+      "settingKey": "quorum_percentage",
+      "settingValue": 10,
+      "description": "Percentual do total de moradores cadastrados que precisa votar (quórum)",
+      "createdAt": "2026-06-01T09:00:00",
+      "updatedAt": "2026-06-01T09:00:00"
+    },
+    {
+      "id": "d35403ac-aa42-4c28-a26d-95432a7adf34",
+      "settingKey": "min_votes_floor",
+      "settingValue": 5,
+      "description": "Piso mínimo de votos exigido para o quórum",
+      "createdAt": "2026-06-01T09:00:00",
+      "updatedAt": "2026-06-01T09:00:00"
+    },
+    {
+      "id": "178a0ba8-97f6-44fc-a7c4-782cc9f130bc",
+      "settingKey": "approval_percentage",
+      "settingValue": 60,
+      "description": "Percentual mínimo de votos a favor sobre os votos computados",
+      "createdAt": "2026-06-01T09:00:00",
+      "updatedAt": "2026-06-01T09:00:00"
+    },
+    {
+      "id": "48cf190d-ad01-4ec3-ba53-bd37d489d103",
+      "settingKey": "stale_after_days",
+      "settingValue": 90,
+      "description": "Dias sem atingir o limiar até a proposta poder ser arquivada",
+      "createdAt": "2026-06-01T09:00:00",
+      "updatedAt": "2026-06-01T09:00:00"
+    },
+    {
+      "id": "1f1cb528-36ba-48b9-97cf-56f29cc084b4",
+      "settingKey": "max_categories_per_proposal",
+      "settingValue": 3,
+      "description": "Máximo de categorias por proposta",
+      "createdAt": "2026-06-01T09:00:00",
+      "updatedAt": "2026-06-01T09:00:00"
+    }
+  ],
+  "addresses": [
+    {
+      "id": "e05251ab-2842-4cc3-bd07-460f0436044d",
+      "street": "Praça das Acácias",
+      "streetNumber": "1",
+      "complement": "Gabinete 3",
+      "neighborhood": "Jardim das Acácias",
+      "city": "São Paulo",
+      "state": "SP",
+      "zipCode": "04010100",
+      "createdAt": "2026-06-01T09:00:00",
+      "updatedAt": "2026-06-01T09:00:00"
+    },
+    {
+      "id": "01e85a18-a98d-4c5b-8d86-fdc87bc5522e",
+      "street": "Praça das Acácias",
+      "streetNumber": "1",
+      "complement": "Sala 12",
+      "neighborhood": "Jardim das Acácias",
+      "city": "São Paulo",
+      "state": "SP",
+      "zipCode": "04010100",
+      "createdAt": "2026-06-01T09:00:00",
+      "updatedAt": "2026-06-01T09:00:00"
+    },
+    {
+      "id": "b225823e-be8f-4fda-858a-07ede4310f01",
+      "street": "Rua das Palmeiras",
+      "streetNumber": "45",
+      "complement": null,
+      "neighborhood": "Jardim das Acácias",
+      "city": "São Paulo",
+      "state": "SP",
+      "zipCode": "04010200",
+      "createdAt": "2026-06-01T09:00:00",
+      "updatedAt": "2026-06-01T09:00:00"
+    },
+    {
+      "id": "26104c2d-5d61-43dc-9f3e-08fa5f0750ed",
+      "street": "Rua dos Ipês",
+      "streetNumber": "120",
+      "complement": "Apto 2",
+      "neighborhood": "Jardim das Acácias",
+      "city": "São Paulo",
+      "state": "SP",
+      "zipCode": "04010300",
+      "createdAt": "2026-06-01T09:00:00",
+      "updatedAt": "2026-06-01T09:00:00"
+    },
+    {
+      "id": "1897d142-738c-43f7-acd1-81e65b37bfde",
+      "street": "Rua das Palmeiras",
+      "streetNumber": "210",
+      "complement": null,
+      "neighborhood": "Jardim das Acácias",
+      "city": "São Paulo",
+      "state": "SP",
+      "zipCode": "04010200",
+      "createdAt": "2026-06-01T09:00:00",
+      "updatedAt": "2026-06-01T09:00:00"
+    },
+    {
+      "id": "6f404fad-ccd5-4b1a-8c1e-0b11dc5134da",
+      "street": "Avenida Central",
+      "streetNumber": "800",
+      "complement": "Bloco B",
+      "neighborhood": "Jardim das Acácias",
+      "city": "São Paulo",
+      "state": "SP",
+      "zipCode": "04020100",
+      "createdAt": "2026-06-01T09:00:00",
+      "updatedAt": "2026-06-01T09:00:00"
+    },
+    {
+      "id": "da9b52b8-62c9-4d00-8bba-e10ff33acd72",
+      "street": "Rua dos Ipês",
+      "streetNumber": "77",
+      "complement": null,
+      "neighborhood": "Jardim das Acácias",
+      "city": "São Paulo",
+      "state": "SP",
+      "zipCode": "04010300",
+      "createdAt": "2026-06-01T09:00:00",
+      "updatedAt": "2026-06-01T09:00:00"
+    },
+    {
+      "id": "ee6d0aa8-6977-4524-a4fc-2b0f28cb4ad7",
+      "street": "Avenida Central",
+      "streetNumber": "1250",
+      "complement": "Apto 31",
+      "neighborhood": "Jardim das Acácias",
+      "city": "São Paulo",
+      "state": "SP",
+      "zipCode": "04020100",
+      "createdAt": "2026-06-01T09:00:00",
+      "updatedAt": "2026-06-01T09:00:00"
+    },
+    {
+      "id": "edf9b3fe-442e-4aa0-8d4a-f69455e28a73",
+      "street": "Rua das Acácias",
+      "streetNumber": "33",
+      "complement": null,
+      "neighborhood": "Jardim das Acácias",
+      "city": "São Paulo",
+      "state": "SP",
+      "zipCode": "04020200",
+      "createdAt": "2026-06-01T09:00:00",
+      "updatedAt": "2026-06-01T09:00:00"
+    },
+    {
+      "id": "06522629-60f5-44d0-9cd8-a6085c82a973",
+      "street": "Rua das Acácias",
+      "streetNumber": "158",
+      "complement": null,
+      "neighborhood": "Jardim das Acácias",
+      "city": "São Paulo",
+      "state": "SP",
+      "zipCode": "04020200",
+      "createdAt": "2026-06-01T09:00:00",
+      "updatedAt": "2026-06-01T09:00:00"
+    }
+  ],
+  "users": [
+    {
+      "id": "4c33c062-8def-473a-bca8-d511579e6cc9",
+      "firstName": "Helena",
+      "lastName": "Duarte",
+      "email": "helena.duarte@prefeitura.exemplo.br",
+      "passwordHash": "M+EvI1YtXk68zIHJZ3kuF6GNbOU5vtAjM1O4HkEwkQo=",
+      "passwordSalt": "fGXtWSmFK+Fi9S09vk9j2w==",
+      "role": "AUTHORITY",
+      "jobTitle": "Vereadora",
+      "department": "Câmara Municipal",
+      "addressId": "e05251ab-2842-4cc3-bd07-460f0436044d",
+      "createdAt": "2026-06-01T09:00:00",
+      "updatedAt": "2026-06-01T09:00:00"
+    },
+    {
+      "id": "c2225dc9-96f0-4e7a-ab09-113e7f776d5f",
+      "firstName": "Carlos",
+      "lastName": "Mendes",
+      "email": "carlos.mendes@prefeitura.exemplo.br",
+      "passwordHash": "F6Jn1GNkVOFWYJNIJLjySspjQuc7Wq6DIdf8KUG2avc=",
+      "passwordSalt": "MbqLFI+jKTjdAYy/IVt7AA==",
+      "role": "AUTHORITY",
+      "jobTitle": "Secretário de Zeladoria Urbana",
+      "department": "Secretaria de Zeladoria",
+      "addressId": "01e85a18-a98d-4c5b-8d86-fdc87bc5522e",
+      "createdAt": "2026-06-01T09:00:00",
+      "updatedAt": "2026-06-01T09:00:00"
+    },
+    {
+      "id": "71e111a9-adbb-4e38-9776-3631b9b2f3b5",
+      "firstName": "Ana",
+      "lastName": "Souza",
+      "email": "ana.souza@email.exemplo.br",
+      "passwordHash": "h8HdVHM/NopHY2moheJkBWB8/qKWDCjUNx1qmHH1u4U=",
+      "passwordSalt": "ESvK2R0AReKQ6aVCNwFBSg==",
+      "role": "RESIDENT",
+      "jobTitle": null,
+      "department": null,
+      "addressId": "b225823e-be8f-4fda-858a-07ede4310f01",
+      "createdAt": "2026-06-01T09:00:00",
+      "updatedAt": "2026-06-01T09:00:00"
+    },
+    {
+      "id": "e372b44f-6771-44bf-aabe-d3411d7f7487",
+      "firstName": "Bruno",
+      "lastName": "Lima",
+      "email": "bruno.lima@email.exemplo.br",
+      "passwordHash": "2W4hM5lSsPddIHyY0ke1Zhd2/IzGGnRcUdsXP3cJZ4w=",
+      "passwordSalt": "+KtYxDx5gc/CEm/tlU2tRg==",
+      "role": "RESIDENT",
+      "jobTitle": null,
+      "department": null,
+      "addressId": "26104c2d-5d61-43dc-9f3e-08fa5f0750ed",
+      "createdAt": "2026-06-01T09:00:00",
+      "updatedAt": "2026-06-01T09:00:00"
+    },
+    {
+      "id": "754840d7-8b19-43bf-874b-ef7b33e1aa1f",
+      "firstName": "Carla",
+      "lastName": "Ribeiro",
+      "email": "carla.ribeiro@email.exemplo.br",
+      "passwordHash": "xZsJWHVn22V9VMSx+YkiPHzB8yMdrgCfFTiRlCvhWuw=",
+      "passwordSalt": "831fWY7Va4YoNuQ7l/ZYlg==",
+      "role": "RESIDENT",
+      "jobTitle": null,
+      "department": null,
+      "addressId": "1897d142-738c-43f7-acd1-81e65b37bfde",
+      "createdAt": "2026-06-01T09:00:00",
+      "updatedAt": "2026-06-01T09:00:00"
+    },
+    {
+      "id": "f9322f82-6a45-4b9b-937f-82683d3930d9",
+      "firstName": "Diego",
+      "lastName": "Alves",
+      "email": "diego.alves@email.exemplo.br",
+      "passwordHash": "wzTTQKkrBn67ZjzmnqnDifN4F+fjOg5B7CVX59NPTyw=",
+      "passwordSalt": "r4+/iBtW8LpkMB6TzGTcsQ==",
+      "role": "RESIDENT",
+      "jobTitle": null,
+      "department": null,
+      "addressId": "6f404fad-ccd5-4b1a-8c1e-0b11dc5134da",
+      "createdAt": "2026-06-01T09:00:00",
+      "updatedAt": "2026-06-01T09:00:00"
+    },
+    {
+      "id": "4b292ded-b5d7-4551-a806-21f7ba62e9c5",
+      "firstName": "Elisa",
+      "lastName": "Ferreira",
+      "email": "elisa.ferreira@email.exemplo.br",
+      "passwordHash": "iw93HFLsVuDflC63+eNwUenljRtMccjRK/0Kk7sRsOg=",
+      "passwordSalt": "mwwPhKEExzws8ufs0ZNGBg==",
+      "role": "RESIDENT",
+      "jobTitle": null,
+      "department": null,
+      "addressId": "da9b52b8-62c9-4d00-8bba-e10ff33acd72",
+      "createdAt": "2026-06-01T09:00:00",
+      "updatedAt": "2026-06-01T09:00:00"
+    },
+    {
+      "id": "0bd69764-6100-4f99-b035-d2f3e11f2c5a",
+      "firstName": "Felipe",
+      "lastName": "Costa",
+      "email": "felipe.costa@email.exemplo.br",
+      "passwordHash": "HYq4zoi+dV4gONaMjGwOaktICSCCaUW9sira5ruuXY4=",
+      "passwordSalt": "O2YFrWMc5C7hw1TAIkUoVw==",
+      "role": "RESIDENT",
+      "jobTitle": null,
+      "department": null,
+      "addressId": "ee6d0aa8-6977-4524-a4fc-2b0f28cb4ad7",
+      "createdAt": "2026-06-01T09:00:00",
+      "updatedAt": "2026-06-01T09:00:00"
+    },
+    {
+      "id": "fc9c42d9-8e17-4ffb-858e-4a27828f0885",
+      "firstName": "Gabriela",
+      "lastName": "Nunes",
+      "email": "gabriela.nunes@email.exemplo.br",
+      "passwordHash": "kJLrC/PAvy0ZmQu5AIZZiNF/5QQM9khWpSfxTLlZjdA=",
+      "passwordSalt": "pU35tOyOkULf8sT8zaHudQ==",
+      "role": "RESIDENT",
+      "jobTitle": null,
+      "department": null,
+      "addressId": "edf9b3fe-442e-4aa0-8d4a-f69455e28a73",
+      "createdAt": "2026-06-01T09:00:00",
+      "updatedAt": "2026-06-01T09:00:00"
+    },
+    {
+      "id": "749a6236-5948-46dc-b20b-c75dafee381b",
+      "firstName": "Henrique",
+      "lastName": "Rocha",
+      "email": "henrique.rocha@email.exemplo.br",
+      "passwordHash": "9SBAEf78urvUIWGshK7TeNTw5Vm65CuislBujpk1JFg=",
+      "passwordSalt": "6wjxkxNFrUAUQN3d8FxwJA==",
+      "role": "RESIDENT",
+      "jobTitle": null,
+      "department": null,
+      "addressId": "06522629-60f5-44d0-9cd8-a6085c82a973",
+      "createdAt": "2026-06-01T09:00:00",
+      "updatedAt": "2026-06-01T09:00:00"
+    }
+  ],
+  "categories": [
+    {
+      "id": "bd45419a-a5c7-4767-a0a2-9912f20d9b14",
+      "name": "Saúde",
+      "slug": "saude",
+      "createdBy": "4c33c062-8def-473a-bca8-d511579e6cc9",
+      "createdAt": "2026-06-01T09:00:00",
+      "updatedAt": "2026-06-01T09:00:00"
+    },
+    {
+      "id": "cacb2782-3c84-42ae-8729-9a490e8c819b",
+      "name": "Educação",
+      "slug": "educacao",
+      "createdBy": "4c33c062-8def-473a-bca8-d511579e6cc9",
+      "createdAt": "2026-06-01T09:00:00",
+      "updatedAt": "2026-06-01T09:00:00"
+    },
+    {
+      "id": "65f1fbc0-994e-4bdf-8522-e1a534c139b6",
+      "name": "Transporte e Mobilidade",
+      "slug": "transporte-e-mobilidade",
+      "createdBy": "4c33c062-8def-473a-bca8-d511579e6cc9",
+      "createdAt": "2026-06-01T09:00:00",
+      "updatedAt": "2026-06-01T09:00:00"
+    },
+    {
+      "id": "ecc4d565-13ab-477d-917b-580cbf66af72",
+      "name": "Segurança",
+      "slug": "seguranca",
+      "createdBy": "4c33c062-8def-473a-bca8-d511579e6cc9",
+      "createdAt": "2026-06-01T09:00:00",
+      "updatedAt": "2026-06-01T09:00:00"
+    },
+    {
+      "id": "0585d908-3669-4e66-aaf5-122279fb3fb4",
+      "name": "Meio Ambiente",
+      "slug": "meio-ambiente",
+      "createdBy": "4c33c062-8def-473a-bca8-d511579e6cc9",
+      "createdAt": "2026-06-01T09:00:00",
+      "updatedAt": "2026-06-01T09:00:00"
+    },
+    {
+      "id": "b0df5369-1b32-4107-a4d7-b7de981b38f1",
+      "name": "Infraestrutura e Zeladoria",
+      "slug": "infraestrutura-e-zeladoria",
+      "createdBy": "4c33c062-8def-473a-bca8-d511579e6cc9",
+      "createdAt": "2026-06-01T09:00:00",
+      "updatedAt": "2026-06-01T09:00:00"
+    },
+    {
+      "id": "bb6aba95-451b-40a7-862f-690ea63117bc",
+      "name": "Cultura e Lazer",
+      "slug": "cultura-e-lazer",
+      "createdBy": "4c33c062-8def-473a-bca8-d511579e6cc9",
+      "createdAt": "2026-06-01T09:00:00",
+      "updatedAt": "2026-06-01T09:00:00"
+    },
+    {
+      "id": "2fb2a783-6c52-46d6-8cf0-f487efefe3f2",
+      "name": "Saneamento",
+      "slug": "saneamento",
+      "createdBy": "4c33c062-8def-473a-bca8-d511579e6cc9",
+      "createdAt": "2026-06-01T09:00:00",
+      "updatedAt": "2026-06-01T09:00:00"
+    }
+  ],
+  "proposals": [
+    {
+      "id": "d501c4b6-ecba-4430-89a0-a40152b0d6bc",
+      "title": "Ciclovia ligando o bairro à estação de trem",
+      "description": "Criar uma ciclovia segura do bairro até a estação, incentivando o uso da bicicleta.",
+      "body": "Muitos moradores usam a bicicleta para chegar à estação de trem, mas precisam dividir a pista com carros e ônibus em um trecho sem acostamento. Propomos uma ciclovia segregada ligando o bairro à estação, com sinalização e iluminação adequadas e um bicicletário na chegada. A obra reduz o risco de acidentes, incentiva um meio de transporte barato e sustentável e diminui o tráfego de carros nas ruas do bairro.",
+      "status": "COLLECTING_VOTES",
+      "createdBy": "0bd69764-6100-4f99-b035-d2f3e11f2c5a",
+      "archivedAt": null,
+      "archivedBy": null,
+      "createdAt": "2026-07-06T11:00:00",
+      "updatedAt": "2026-07-06T11:00:00"
+    },
+    {
+      "id": "c4197a10-20b2-4ad5-933f-2ef8337565e1",
+      "title": "Lixeiras de coleta seletiva nas esquinas do bairro",
+      "description": "Instalar lixeiras de coleta seletiva nas principais esquinas e na praça.",
+      "body": "Hoje o bairro tem poucas lixeiras e nenhuma separa o lixo reciclável, o que faz o material acabar misturado nas calçadas e nos bueiros. Propomos instalar conjuntos de lixeiras para orgânicos, recicláveis e rejeitos nas principais esquinas e na praça, com identificação por cores e informações simples sobre o que descartar em cada uma. A medida reduz o entupimento de bueiros, aumenta a reciclagem e melhora a limpeza das ruas.",
+      "status": "COMPLETED",
+      "createdBy": "4b292ded-b5d7-4551-a806-21f7ba62e9c5",
+      "archivedAt": null,
+      "archivedBy": null,
+      "createdAt": "2026-08-03T09:30:00",
+      "updatedAt": "2026-10-05T16:00:00"
+    },
+    {
+      "id": "2d6e1376-26e6-4223-bbbd-5fb8e2de5bac",
+      "title": "Reforma da Praça das Acácias e iluminação em LED",
+      "description": "Recuperar a praça com novos bancos, calçada acessível e iluminação em LED.",
+      "body": "A Praça das Acácias tem calçadas quebradas, postes apagados e poucos bancos. À noite ela fica escura e os moradores evitam passar por ali. Propomos recuperar a calçada com piso regular e rampas de acesso, trocar a iluminação por lâmpadas de LED, instalar bancos e lixeiras e podar as árvores que cobrem os postes. A reforma melhora a segurança, a acessibilidade e o uso da praça pela comunidade, e a iluminação de LED reduz o gasto de energia.",
+      "status": "IN_PROGRESS",
+      "createdBy": "754840d7-8b19-43bf-874b-ef7b33e1aa1f",
+      "archivedAt": null,
+      "archivedBy": null,
+      "createdAt": "2026-09-14T09:00:00",
+      "updatedAt": "2026-10-20T10:00:00"
+    },
+    {
+      "id": "298cb0f7-8414-45be-ba10-28989c91b091",
+      "title": "Proibir o estacionamento em toda a Avenida Central",
+      "description": "Proibir o estacionamento nos dois lados da avenida para liberar uma faixa extra de circulação.",
+      "body": "A Avenida Central fica congestionada nos horários de pico porque os carros estacionados reduzem a via a uma faixa em cada sentido. Propomos proibir o estacionamento nos dois lados da avenida, em toda a sua extensão, para liberar uma faixa extra de circulação e agilizar o transporte coletivo. A medida reduziria o tempo de deslocamento, mas também afeta o comércio local e os moradores sem garagem, e por isso deve ser debatida.",
+      "status": "REJECTED",
+      "createdBy": "f9322f82-6a45-4b9b-937f-82683d3930d9",
+      "archivedAt": "2026-10-13T15:00:00",
+      "archivedBy": "c2225dc9-96f0-4e7a-ab09-113e7f776d5f",
+      "createdAt": "2026-10-01T10:00:00",
+      "updatedAt": "2026-10-13T15:00:00"
+    },
+    {
+      "id": "3b6b4d85-da92-41da-9c85-c6c2073b7ea8",
+      "title": "Horta comunitária no terreno baldio da Rua dos Ipês",
+      "description": "Transformar o terreno abandonado em uma horta comunitária cuidada pelos moradores.",
+      "body": "O terreno ao lado do número 120 da Rua dos Ipês está abandonado há anos e acumula entulho e mato alto. Propomos transformá-lo em uma horta comunitária, com canteiros cuidados pelos moradores, composteira para os resíduos orgânicos do bairro e um espaço de convivência com bancos. A prefeitura cederia o uso do terreno e forneceria água e as primeiras mudas. A horta melhora a limpeza do local, reduz o descarte irregular e oferece alimentos frescos e atividades para crianças e idosos.",
+      "status": "AWAITING_REVIEW",
+      "createdBy": "e372b44f-6771-44bf-aabe-d3411d7f7487",
+      "archivedAt": null,
+      "archivedBy": null,
+      "createdAt": "2026-11-02T09:15:00",
+      "updatedAt": "2026-11-04T08:00:00"
+    },
+    {
+      "id": "295234f9-f00b-4fa9-8b7c-8f1f5b63a1f6",
+      "title": "Semáforo no cruzamento da Rua das Palmeiras com a Avenida Central",
+      "description": "Instalar semáforo com botoeira para pedestres no cruzamento mais movimentado do bairro.",
+      "body": "O cruzamento da Rua das Palmeiras com a Avenida Central não tem semáforo nem faixa elevada. Nos horários de entrada e saída da escola e do trabalho, pedestres, ciclistas e carros disputam o mesmo espaço, e já houve vários quase-atropelamentos. Propomos a instalação de um semáforo com botoeira e tempo estendido para pedestres, além de sinalização horizontal reforçada e uma faixa elevada. A medida reduz o risco para crianças e idosos e organiza o fluxo de veículos no horário de pico.",
+      "status": "COLLECTING_VOTES",
+      "createdBy": "71e111a9-adbb-4e38-9776-3631b9b2f3b5",
+      "archivedAt": null,
+      "archivedBy": null,
+      "createdAt": "2026-11-10T08:30:00",
+      "updatedAt": "2026-11-10T08:30:00"
+    }
+  ],
+  "proposalCategories": [
+    {
+      "proposalId": "295234f9-f00b-4fa9-8b7c-8f1f5b63a1f6",
+      "categoryId": "65f1fbc0-994e-4bdf-8522-e1a534c139b6",
+      "createdAt": "2026-11-10T08:30:00"
+    },
+    {
+      "proposalId": "295234f9-f00b-4fa9-8b7c-8f1f5b63a1f6",
+      "categoryId": "ecc4d565-13ab-477d-917b-580cbf66af72",
+      "createdAt": "2026-11-10T08:30:00"
+    },
+    {
+      "proposalId": "3b6b4d85-da92-41da-9c85-c6c2073b7ea8",
+      "categoryId": "0585d908-3669-4e66-aaf5-122279fb3fb4",
+      "createdAt": "2026-11-02T09:15:00"
+    },
+    {
+      "proposalId": "3b6b4d85-da92-41da-9c85-c6c2073b7ea8",
+      "categoryId": "bb6aba95-451b-40a7-862f-690ea63117bc",
+      "createdAt": "2026-11-02T09:15:00"
+    },
+    {
+      "proposalId": "2d6e1376-26e6-4223-bbbd-5fb8e2de5bac",
+      "categoryId": "b0df5369-1b32-4107-a4d7-b7de981b38f1",
+      "createdAt": "2026-09-14T09:00:00"
+    },
+    {
+      "proposalId": "2d6e1376-26e6-4223-bbbd-5fb8e2de5bac",
+      "categoryId": "ecc4d565-13ab-477d-917b-580cbf66af72",
+      "createdAt": "2026-09-14T09:00:00"
+    },
+    {
+      "proposalId": "298cb0f7-8414-45be-ba10-28989c91b091",
+      "categoryId": "65f1fbc0-994e-4bdf-8522-e1a534c139b6",
+      "createdAt": "2026-10-01T10:00:00"
+    },
+    {
+      "proposalId": "c4197a10-20b2-4ad5-933f-2ef8337565e1",
+      "categoryId": "2fb2a783-6c52-46d6-8cf0-f487efefe3f2",
+      "createdAt": "2026-08-03T09:30:00"
+    },
+    {
+      "proposalId": "c4197a10-20b2-4ad5-933f-2ef8337565e1",
+      "categoryId": "0585d908-3669-4e66-aaf5-122279fb3fb4",
+      "createdAt": "2026-08-03T09:30:00"
+    },
+    {
+      "proposalId": "d501c4b6-ecba-4430-89a0-a40152b0d6bc",
+      "categoryId": "65f1fbc0-994e-4bdf-8522-e1a534c139b6",
+      "createdAt": "2026-07-06T11:00:00"
+    },
+    {
+      "proposalId": "d501c4b6-ecba-4430-89a0-a40152b0d6bc",
+      "categoryId": "0585d908-3669-4e66-aaf5-122279fb3fb4",
+      "createdAt": "2026-07-06T11:00:00"
+    }
+  ],
+  "votes": [
+    {
+      "id": "c2ff11e6-bc43-44d7-8c65-042317fd5518",
+      "userId": "e372b44f-6771-44bf-aabe-d3411d7f7487",
+      "proposalId": "295234f9-f00b-4fa9-8b7c-8f1f5b63a1f6",
+      "voteType": "IN_FAVOR",
+      "addressId": "26104c2d-5d61-43dc-9f3e-08fa5f0750ed",
+      "createdAt": "2026-11-10T09:00:00",
+      "updatedAt": "2026-11-10T09:00:00"
+    },
+    {
+      "id": "6e7b3c6e-67c0-45ec-8849-7c01712f676e",
+      "userId": "754840d7-8b19-43bf-874b-ef7b33e1aa1f",
+      "proposalId": "295234f9-f00b-4fa9-8b7c-8f1f5b63a1f6",
+      "voteType": "IN_FAVOR",
+      "addressId": "1897d142-738c-43f7-acd1-81e65b37bfde",
+      "createdAt": "2026-11-10T13:00:00",
+      "updatedAt": "2026-11-10T13:00:00"
+    },
+    {
+      "id": "6193cad1-2130-4da8-8375-63bc1a4bd90b",
+      "userId": "f9322f82-6a45-4b9b-937f-82683d3930d9",
+      "proposalId": "295234f9-f00b-4fa9-8b7c-8f1f5b63a1f6",
+      "voteType": "AGAINST",
+      "addressId": "6f404fad-ccd5-4b1a-8c1e-0b11dc5134da",
+      "createdAt": "2026-11-11T08:00:00",
+      "updatedAt": "2026-11-11T08:00:00"
+    },
+    {
+      "id": "f43e255c-eee7-4dde-a8e8-4e8bed6ddf55",
+      "userId": "4b292ded-b5d7-4551-a806-21f7ba62e9c5",
+      "proposalId": "295234f9-f00b-4fa9-8b7c-8f1f5b63a1f6",
+      "voteType": "IN_FAVOR",
+      "addressId": "da9b52b8-62c9-4d00-8bba-e10ff33acd72",
+      "createdAt": "2026-11-12T10:00:00",
+      "updatedAt": "2026-11-12T10:00:00"
+    },
+    {
+      "id": "bb6be0d2-525c-4405-bd80-dd82d30343ed",
+      "userId": "71e111a9-adbb-4e38-9776-3631b9b2f3b5",
+      "proposalId": "3b6b4d85-da92-41da-9c85-c6c2073b7ea8",
+      "voteType": "IN_FAVOR",
+      "addressId": "b225823e-be8f-4fda-858a-07ede4310f01",
+      "createdAt": "2026-11-02T10:00:00",
+      "updatedAt": "2026-11-02T10:00:00"
+    },
+    {
+      "id": "c1bb3982-6792-43ab-b217-bab1724f5468",
+      "userId": "754840d7-8b19-43bf-874b-ef7b33e1aa1f",
+      "proposalId": "3b6b4d85-da92-41da-9c85-c6c2073b7ea8",
+      "voteType": "IN_FAVOR",
+      "addressId": "1897d142-738c-43f7-acd1-81e65b37bfde",
+      "createdAt": "2026-11-02T12:00:00",
+      "updatedAt": "2026-11-02T12:00:00"
+    },
+    {
+      "id": "3587a97d-90fa-4f3a-80dd-d60698cf237d",
+      "userId": "f9322f82-6a45-4b9b-937f-82683d3930d9",
+      "proposalId": "3b6b4d85-da92-41da-9c85-c6c2073b7ea8",
+      "voteType": "IN_FAVOR",
+      "addressId": "6f404fad-ccd5-4b1a-8c1e-0b11dc5134da",
+      "createdAt": "2026-11-03T09:00:00",
+      "updatedAt": "2026-11-03T09:00:00"
+    },
+    {
+      "id": "f6d8fe7b-7472-4445-ad53-f063fa224b7a",
+      "userId": "fc9c42d9-8e17-4ffb-858e-4a27828f0885",
+      "proposalId": "3b6b4d85-da92-41da-9c85-c6c2073b7ea8",
+      "voteType": "AGAINST",
+      "addressId": "edf9b3fe-442e-4aa0-8d4a-f69455e28a73",
+      "createdAt": "2026-11-03T19:00:00",
+      "updatedAt": "2026-11-03T19:00:00"
+    },
+    {
+      "id": "ca66bf85-776d-4b5c-a5a6-356bd62f28ee",
+      "userId": "4b292ded-b5d7-4551-a806-21f7ba62e9c5",
+      "proposalId": "3b6b4d85-da92-41da-9c85-c6c2073b7ea8",
+      "voteType": "IN_FAVOR",
+      "addressId": "da9b52b8-62c9-4d00-8bba-e10ff33acd72",
+      "createdAt": "2026-11-04T08:00:00",
+      "updatedAt": "2026-11-04T08:00:00"
+    },
+    {
+      "id": "e571fe10-c44b-4ee5-986a-8b3940847cac",
+      "userId": "0bd69764-6100-4f99-b035-d2f3e11f2c5a",
+      "proposalId": "3b6b4d85-da92-41da-9c85-c6c2073b7ea8",
+      "voteType": "IN_FAVOR",
+      "addressId": "ee6d0aa8-6977-4524-a4fc-2b0f28cb4ad7",
+      "createdAt": "2026-11-05T10:00:00",
+      "updatedAt": "2026-11-05T10:00:00"
+    },
+    {
+      "id": "ce11b900-a591-435e-a37b-7fe2689ded09",
+      "userId": "71e111a9-adbb-4e38-9776-3631b9b2f3b5",
+      "proposalId": "2d6e1376-26e6-4223-bbbd-5fb8e2de5bac",
+      "voteType": "IN_FAVOR",
+      "addressId": "b225823e-be8f-4fda-858a-07ede4310f01",
+      "createdAt": "2026-09-14T10:00:00",
+      "updatedAt": "2026-09-14T10:00:00"
+    },
+    {
+      "id": "68fea60a-8d76-4f75-b15d-d1234183b7c3",
+      "userId": "e372b44f-6771-44bf-aabe-d3411d7f7487",
+      "proposalId": "2d6e1376-26e6-4223-bbbd-5fb8e2de5bac",
+      "voteType": "IN_FAVOR",
+      "addressId": "26104c2d-5d61-43dc-9f3e-08fa5f0750ed",
+      "createdAt": "2026-09-14T14:00:00",
+      "updatedAt": "2026-09-14T14:00:00"
+    },
+    {
+      "id": "8989e9dd-1703-44de-9350-772060db72bc",
+      "userId": "f9322f82-6a45-4b9b-937f-82683d3930d9",
+      "proposalId": "2d6e1376-26e6-4223-bbbd-5fb8e2de5bac",
+      "voteType": "IN_FAVOR",
+      "addressId": "6f404fad-ccd5-4b1a-8c1e-0b11dc5134da",
+      "createdAt": "2026-09-15T09:00:00",
+      "updatedAt": "2026-09-15T09:00:00"
+    },
+    {
+      "id": "5d562067-63a4-457b-a11a-c5742f196e13",
+      "userId": "4b292ded-b5d7-4551-a806-21f7ba62e9c5",
+      "proposalId": "2d6e1376-26e6-4223-bbbd-5fb8e2de5bac",
+      "voteType": "IN_FAVOR",
+      "addressId": "da9b52b8-62c9-4d00-8bba-e10ff33acd72",
+      "createdAt": "2026-09-15T18:00:00",
+      "updatedAt": "2026-09-15T18:00:00"
+    },
+    {
+      "id": "9394735a-33f5-4cf0-ae57-987e54c79fff",
+      "userId": "fc9c42d9-8e17-4ffb-858e-4a27828f0885",
+      "proposalId": "2d6e1376-26e6-4223-bbbd-5fb8e2de5bac",
+      "voteType": "AGAINST",
+      "addressId": "edf9b3fe-442e-4aa0-8d4a-f69455e28a73",
+      "createdAt": "2026-09-16T08:00:00",
+      "updatedAt": "2026-09-16T08:00:00"
+    },
+    {
+      "id": "5b969280-1d26-4edd-bc1e-482ace9c0289",
+      "userId": "0bd69764-6100-4f99-b035-d2f3e11f2c5a",
+      "proposalId": "2d6e1376-26e6-4223-bbbd-5fb8e2de5bac",
+      "voteType": "IN_FAVOR",
+      "addressId": "ee6d0aa8-6977-4524-a4fc-2b0f28cb4ad7",
+      "createdAt": "2026-09-17T10:00:00",
+      "updatedAt": "2026-09-17T10:00:00"
+    },
+    {
+      "id": "92f26b6d-0cf7-4a6c-aff1-a6bbcbfa6da8",
+      "userId": "749a6236-5948-46dc-b20b-c75dafee381b",
+      "proposalId": "2d6e1376-26e6-4223-bbbd-5fb8e2de5bac",
+      "voteType": "IN_FAVOR",
+      "addressId": "06522629-60f5-44d0-9cd8-a6085c82a973",
+      "createdAt": "2026-09-18T12:00:00",
+      "updatedAt": "2026-09-18T12:00:00"
+    },
+    {
+      "id": "f2465f13-2b11-4fe0-bff4-1f30399282fe",
+      "userId": "4c33c062-8def-473a-bca8-d511579e6cc9",
+      "proposalId": "2d6e1376-26e6-4223-bbbd-5fb8e2de5bac",
+      "voteType": "IN_FAVOR",
+      "addressId": "e05251ab-2842-4cc3-bd07-460f0436044d",
+      "createdAt": "2026-09-20T09:00:00",
+      "updatedAt": "2026-09-20T09:00:00"
+    },
+    {
+      "id": "5add3372-9746-4d4b-8924-c839806e7567",
+      "userId": "71e111a9-adbb-4e38-9776-3631b9b2f3b5",
+      "proposalId": "298cb0f7-8414-45be-ba10-28989c91b091",
+      "voteType": "IN_FAVOR",
+      "addressId": "b225823e-be8f-4fda-858a-07ede4310f01",
+      "createdAt": "2026-10-01T11:00:00",
+      "updatedAt": "2026-10-01T11:00:00"
+    },
+    {
+      "id": "0346034d-0868-4943-9869-c72abc5516f6",
+      "userId": "e372b44f-6771-44bf-aabe-d3411d7f7487",
+      "proposalId": "298cb0f7-8414-45be-ba10-28989c91b091",
+      "voteType": "AGAINST",
+      "addressId": "26104c2d-5d61-43dc-9f3e-08fa5f0750ed",
+      "createdAt": "2026-10-01T16:00:00",
+      "updatedAt": "2026-10-01T16:00:00"
+    },
+    {
+      "id": "6124491d-b1a9-4ea3-8f57-b9da8a4b9c1a",
+      "userId": "754840d7-8b19-43bf-874b-ef7b33e1aa1f",
+      "proposalId": "298cb0f7-8414-45be-ba10-28989c91b091",
+      "voteType": "IN_FAVOR",
+      "addressId": "1897d142-738c-43f7-acd1-81e65b37bfde",
+      "createdAt": "2026-10-02T09:00:00",
+      "updatedAt": "2026-10-02T09:00:00"
+    },
+    {
+      "id": "8ace7c94-3477-4a7f-888d-925589586ac4",
+      "userId": "4b292ded-b5d7-4551-a806-21f7ba62e9c5",
+      "proposalId": "298cb0f7-8414-45be-ba10-28989c91b091",
+      "voteType": "AGAINST",
+      "addressId": "da9b52b8-62c9-4d00-8bba-e10ff33acd72",
+      "createdAt": "2026-10-02T20:00:00",
+      "updatedAt": "2026-10-02T20:00:00"
+    },
+    {
+      "id": "13a1cf95-5fba-4f26-82ef-998137a942e6",
+      "userId": "0bd69764-6100-4f99-b035-d2f3e11f2c5a",
+      "proposalId": "298cb0f7-8414-45be-ba10-28989c91b091",
+      "voteType": "IN_FAVOR",
+      "addressId": "ee6d0aa8-6977-4524-a4fc-2b0f28cb4ad7",
+      "createdAt": "2026-10-03T10:00:00",
+      "updatedAt": "2026-10-03T10:00:00"
+    },
+    {
+      "id": "0d27c73d-72e4-45a2-91b8-028209c4548c",
+      "userId": "fc9c42d9-8e17-4ffb-858e-4a27828f0885",
+      "proposalId": "298cb0f7-8414-45be-ba10-28989c91b091",
+      "voteType": "IN_FAVOR",
+      "addressId": "edf9b3fe-442e-4aa0-8d4a-f69455e28a73",
+      "createdAt": "2026-10-04T09:00:00",
+      "updatedAt": "2026-10-04T09:00:00"
+    },
+    {
+      "id": "fa005d98-61ca-46fc-a8b5-e48d2d0c3914",
+      "userId": "71e111a9-adbb-4e38-9776-3631b9b2f3b5",
+      "proposalId": "c4197a10-20b2-4ad5-933f-2ef8337565e1",
+      "voteType": "IN_FAVOR",
+      "addressId": "b225823e-be8f-4fda-858a-07ede4310f01",
+      "createdAt": "2026-08-03T10:00:00",
+      "updatedAt": "2026-08-03T10:00:00"
+    },
+    {
+      "id": "6bd60d9f-b84b-49b2-8727-84f6ac1febe1",
+      "userId": "e372b44f-6771-44bf-aabe-d3411d7f7487",
+      "proposalId": "c4197a10-20b2-4ad5-933f-2ef8337565e1",
+      "voteType": "IN_FAVOR",
+      "addressId": "26104c2d-5d61-43dc-9f3e-08fa5f0750ed",
+      "createdAt": "2026-08-03T15:00:00",
+      "updatedAt": "2026-08-03T15:00:00"
+    },
+    {
+      "id": "9bc626e6-40a6-4ee4-bb2c-7a24328e65fd",
+      "userId": "754840d7-8b19-43bf-874b-ef7b33e1aa1f",
+      "proposalId": "c4197a10-20b2-4ad5-933f-2ef8337565e1",
+      "voteType": "IN_FAVOR",
+      "addressId": "1897d142-738c-43f7-acd1-81e65b37bfde",
+      "createdAt": "2026-08-04T09:00:00",
+      "updatedAt": "2026-08-04T09:00:00"
+    },
+    {
+      "id": "b6905e24-347f-4572-9324-6b996ee6c73d",
+      "userId": "f9322f82-6a45-4b9b-937f-82683d3930d9",
+      "proposalId": "c4197a10-20b2-4ad5-933f-2ef8337565e1",
+      "voteType": "IN_FAVOR",
+      "addressId": "6f404fad-ccd5-4b1a-8c1e-0b11dc5134da",
+      "createdAt": "2026-08-05T18:00:00",
+      "updatedAt": "2026-08-05T18:00:00"
+    },
+    {
+      "id": "41745425-e60c-4038-a78b-f256d8473eef",
+      "userId": "0bd69764-6100-4f99-b035-d2f3e11f2c5a",
+      "proposalId": "c4197a10-20b2-4ad5-933f-2ef8337565e1",
+      "voteType": "IN_FAVOR",
+      "addressId": "ee6d0aa8-6977-4524-a4fc-2b0f28cb4ad7",
+      "createdAt": "2026-08-09T11:00:00",
+      "updatedAt": "2026-08-09T11:00:00"
+    },
+    {
+      "id": "b074ad5a-7838-434e-9784-73ba05ed9aef",
+      "userId": "749a6236-5948-46dc-b20b-c75dafee381b",
+      "proposalId": "c4197a10-20b2-4ad5-933f-2ef8337565e1",
+      "voteType": "AGAINST",
+      "addressId": "06522629-60f5-44d0-9cd8-a6085c82a973",
+      "createdAt": "2026-08-12T09:00:00",
+      "updatedAt": "2026-08-12T09:00:00"
+    },
+    {
+      "id": "949868f1-c237-4d99-866a-3efedaff296f",
+      "userId": "4c33c062-8def-473a-bca8-d511579e6cc9",
+      "proposalId": "c4197a10-20b2-4ad5-933f-2ef8337565e1",
+      "voteType": "IN_FAVOR",
+      "addressId": "e05251ab-2842-4cc3-bd07-460f0436044d",
+      "createdAt": "2026-08-14T10:00:00",
+      "updatedAt": "2026-08-14T10:00:00"
+    },
+    {
+      "id": "cb65b16c-a7f0-457e-8dbe-17ea2e032fcc",
+      "userId": "fc9c42d9-8e17-4ffb-858e-4a27828f0885",
+      "proposalId": "d501c4b6-ecba-4430-89a0-a40152b0d6bc",
+      "voteType": "IN_FAVOR",
+      "addressId": "edf9b3fe-442e-4aa0-8d4a-f69455e28a73",
+      "createdAt": "2026-07-07T09:00:00",
+      "updatedAt": "2026-07-07T09:00:00"
+    },
+    {
+      "id": "6aa87cd6-3fa3-4c97-9eaa-406fd11bd606",
+      "userId": "749a6236-5948-46dc-b20b-c75dafee381b",
+      "proposalId": "d501c4b6-ecba-4430-89a0-a40152b0d6bc",
+      "voteType": "AGAINST",
+      "addressId": "06522629-60f5-44d0-9cd8-a6085c82a973",
+      "createdAt": "2026-07-08T10:00:00",
+      "updatedAt": "2026-07-08T10:00:00"
+    }
+  ],
+  "officialResponses": [
+    {
+      "id": "d5107681-4b88-4aac-b2ca-889a8dd7f1c8",
+      "proposalId": "2d6e1376-26e6-4223-bbbd-5fb8e2de5bac",
+      "createdBy": "4c33c062-8def-473a-bca8-d511579e6cc9",
+      "content": "A proposta foi aprovada. A Secretaria de Zeladoria vai elaborar o projeto de reforma da praça e da iluminação, com previsão de início das obras em outubro. A comunidade será consultada sobre o desenho dos bancos e do paisagismo.",
+      "proposalStatus": "APPROVED",
+      "createdAt": "2026-09-29T14:00:00",
+      "updatedAt": "2026-09-29T14:00:00"
+    },
+    {
+      "id": "fccc04be-ae4b-475a-ac6e-a1ed6dc2bd17",
+      "proposalId": "2d6e1376-26e6-4223-bbbd-5fb8e2de5bac",
+      "createdBy": "c2225dc9-96f0-4e7a-ab09-113e7f776d5f",
+      "content": "As obras começaram. A troca da iluminação por LED é a primeira etapa e deve terminar em três semanas, seguida da recuperação das calçadas. O cronograma será atualizado aqui.",
+      "proposalStatus": "IN_PROGRESS",
+      "createdAt": "2026-10-20T10:00:00",
+      "updatedAt": "2026-10-20T10:00:00"
+    },
+    {
+      "id": "97c73257-19e8-4e0a-b9bf-9e89e0297ddc",
+      "proposalId": "298cb0f7-8414-45be-ba10-28989c91b091",
+      "createdBy": "c2225dc9-96f0-4e7a-ab09-113e7f776d5f",
+      "content": "Após análise técnica, a proposta foi recusada. A proibição total do estacionamento prejudicaria o comércio local e os moradores sem garagem, e os estudos de tráfego indicam que a medida teria efeito limitado. A Secretaria vai estudar alternativas, como a faixa exclusiva de ônibus nos horários de pico, e convida os moradores a apresentar uma nova proposta.",
+      "proposalStatus": "REJECTED",
+      "createdAt": "2026-10-13T15:00:00",
+      "updatedAt": "2026-10-13T15:00:00"
+    },
+    {
+      "id": "718a5c10-5a4e-4a90-a9df-69743658fbc3",
+      "proposalId": "c4197a10-20b2-4ad5-933f-2ef8337565e1",
+      "createdBy": "4c33c062-8def-473a-bca8-d511579e6cc9",
+      "content": "Proposta aprovada. A prefeitura vai adquirir os conjuntos de lixeiras e instalá-los nas esquinas indicadas pelos moradores.",
+      "proposalStatus": "APPROVED",
+      "createdAt": "2026-08-25T14:00:00",
+      "updatedAt": "2026-08-25T14:00:00"
+    },
+    {
+      "id": "707c89a6-c7e3-43f2-9803-4fd9788db20b",
+      "proposalId": "c4197a10-20b2-4ad5-933f-2ef8337565e1",
+      "createdBy": "c2225dc9-96f0-4e7a-ab09-113e7f776d5f",
+      "content": "As lixeiras foram instaladas nas principais esquinas e na praça. Obrigado a todos que participaram da votação.",
+      "proposalStatus": "COMPLETED",
+      "createdAt": "2026-10-05T16:00:00",
+      "updatedAt": "2026-10-05T16:00:00"
+    }
+  ],
+  "proposalStatusHistory": [
+    {
+      "id": "cc5cf506-3bdc-47d9-956b-e714a2a4ae58",
+      "proposalId": "295234f9-f00b-4fa9-8b7c-8f1f5b63a1f6",
+      "fromStatus": null,
+      "toStatus": "COLLECTING_VOTES",
+      "changedBy": "71e111a9-adbb-4e38-9776-3631b9b2f3b5",
+      "createdAt": "2026-11-10T08:30:00",
+      "updatedAt": "2026-11-10T08:30:00"
+    },
+    {
+      "id": "3c7983c2-2f2a-4af0-8db4-8cd00991204a",
+      "proposalId": "3b6b4d85-da92-41da-9c85-c6c2073b7ea8",
+      "fromStatus": null,
+      "toStatus": "COLLECTING_VOTES",
+      "changedBy": "e372b44f-6771-44bf-aabe-d3411d7f7487",
+      "createdAt": "2026-11-02T09:15:00",
+      "updatedAt": "2026-11-02T09:15:00"
+    },
+    {
+      "id": "fa26a843-b40f-462c-a69f-dad9a19da7eb",
+      "proposalId": "3b6b4d85-da92-41da-9c85-c6c2073b7ea8",
+      "fromStatus": "COLLECTING_VOTES",
+      "toStatus": "AWAITING_REVIEW",
+      "changedBy": null,
+      "createdAt": "2026-11-04T08:00:00",
+      "updatedAt": "2026-11-04T08:00:00"
+    },
+    {
+      "id": "c9def670-91d7-4f57-ac40-5fb65ef2aef9",
+      "proposalId": "2d6e1376-26e6-4223-bbbd-5fb8e2de5bac",
+      "fromStatus": null,
+      "toStatus": "COLLECTING_VOTES",
+      "changedBy": "754840d7-8b19-43bf-874b-ef7b33e1aa1f",
+      "createdAt": "2026-09-14T09:00:00",
+      "updatedAt": "2026-09-14T09:00:00"
+    },
+    {
+      "id": "b1e107de-4881-4e1f-acb6-997a5df12faa",
+      "proposalId": "2d6e1376-26e6-4223-bbbd-5fb8e2de5bac",
+      "fromStatus": "COLLECTING_VOTES",
+      "toStatus": "AWAITING_REVIEW",
+      "changedBy": null,
+      "createdAt": "2026-09-16T08:00:00",
+      "updatedAt": "2026-09-16T08:00:00"
+    },
+    {
+      "id": "858ac41c-0427-4432-a25f-b64474248ba3",
+      "proposalId": "2d6e1376-26e6-4223-bbbd-5fb8e2de5bac",
+      "fromStatus": "AWAITING_REVIEW",
+      "toStatus": "UNDER_REVIEW",
+      "changedBy": "4c33c062-8def-473a-bca8-d511579e6cc9",
+      "createdAt": "2026-09-22T10:00:00",
+      "updatedAt": "2026-09-22T10:00:00"
+    },
+    {
+      "id": "94806f5b-319d-4b40-9499-c41a059cad9c",
+      "proposalId": "2d6e1376-26e6-4223-bbbd-5fb8e2de5bac",
+      "fromStatus": "UNDER_REVIEW",
+      "toStatus": "APPROVED",
+      "changedBy": "4c33c062-8def-473a-bca8-d511579e6cc9",
+      "createdAt": "2026-09-29T14:00:00",
+      "updatedAt": "2026-09-29T14:00:00"
+    },
+    {
+      "id": "786ea390-823a-4523-b193-c322a81211f1",
+      "proposalId": "2d6e1376-26e6-4223-bbbd-5fb8e2de5bac",
+      "fromStatus": "APPROVED",
+      "toStatus": "IN_PROGRESS",
+      "changedBy": "c2225dc9-96f0-4e7a-ab09-113e7f776d5f",
+      "createdAt": "2026-10-20T10:00:00",
+      "updatedAt": "2026-10-20T10:00:00"
+    },
+    {
+      "id": "a77762c3-dea3-47c1-8fa1-65db98898999",
+      "proposalId": "298cb0f7-8414-45be-ba10-28989c91b091",
+      "fromStatus": null,
+      "toStatus": "COLLECTING_VOTES",
+      "changedBy": "f9322f82-6a45-4b9b-937f-82683d3930d9",
+      "createdAt": "2026-10-01T10:00:00",
+      "updatedAt": "2026-10-01T10:00:00"
+    },
+    {
+      "id": "b01086b2-1f37-47fe-8050-1599cc40d8cb",
+      "proposalId": "298cb0f7-8414-45be-ba10-28989c91b091",
+      "fromStatus": "COLLECTING_VOTES",
+      "toStatus": "AWAITING_REVIEW",
+      "changedBy": null,
+      "createdAt": "2026-10-03T10:00:00",
+      "updatedAt": "2026-10-03T10:00:00"
+    },
+    {
+      "id": "12a69851-05e8-48d3-9d75-1762fbac61c5",
+      "proposalId": "298cb0f7-8414-45be-ba10-28989c91b091",
+      "fromStatus": "AWAITING_REVIEW",
+      "toStatus": "UNDER_REVIEW",
+      "changedBy": "c2225dc9-96f0-4e7a-ab09-113e7f776d5f",
+      "createdAt": "2026-10-08T09:00:00",
+      "updatedAt": "2026-10-08T09:00:00"
+    },
+    {
+      "id": "72a4c9b6-a1de-4e38-b29e-7d61fdaaf240",
+      "proposalId": "298cb0f7-8414-45be-ba10-28989c91b091",
+      "fromStatus": "UNDER_REVIEW",
+      "toStatus": "REJECTED",
+      "changedBy": "c2225dc9-96f0-4e7a-ab09-113e7f776d5f",
+      "createdAt": "2026-10-13T15:00:00",
+      "updatedAt": "2026-10-13T15:00:00"
+    },
+    {
+      "id": "e222373d-9a5b-4541-ae84-97e520fa5f84",
+      "proposalId": "c4197a10-20b2-4ad5-933f-2ef8337565e1",
+      "fromStatus": null,
+      "toStatus": "COLLECTING_VOTES",
+      "changedBy": "4b292ded-b5d7-4551-a806-21f7ba62e9c5",
+      "createdAt": "2026-08-03T09:30:00",
+      "updatedAt": "2026-08-03T09:30:00"
+    },
+    {
+      "id": "27ce037e-24ba-4370-8634-6c9bc3572e00",
+      "proposalId": "c4197a10-20b2-4ad5-933f-2ef8337565e1",
+      "fromStatus": "COLLECTING_VOTES",
+      "toStatus": "AWAITING_REVIEW",
+      "changedBy": null,
+      "createdAt": "2026-08-09T11:00:00",
+      "updatedAt": "2026-08-09T11:00:00"
+    },
+    {
+      "id": "927701f7-c09d-4832-9f29-1712b41aba6a",
+      "proposalId": "c4197a10-20b2-4ad5-933f-2ef8337565e1",
+      "fromStatus": "AWAITING_REVIEW",
+      "toStatus": "UNDER_REVIEW",
+      "changedBy": "c2225dc9-96f0-4e7a-ab09-113e7f776d5f",
+      "createdAt": "2026-08-18T10:00:00",
+      "updatedAt": "2026-08-18T10:00:00"
+    },
+    {
+      "id": "59f17bc3-5bf4-469a-9da9-5c399cbc0305",
+      "proposalId": "c4197a10-20b2-4ad5-933f-2ef8337565e1",
+      "fromStatus": "UNDER_REVIEW",
+      "toStatus": "APPROVED",
+      "changedBy": "4c33c062-8def-473a-bca8-d511579e6cc9",
+      "createdAt": "2026-08-25T14:00:00",
+      "updatedAt": "2026-08-25T14:00:00"
+    },
+    {
+      "id": "c79b94c8-6012-45d0-9275-90469856cf22",
+      "proposalId": "c4197a10-20b2-4ad5-933f-2ef8337565e1",
+      "fromStatus": "APPROVED",
+      "toStatus": "IN_PROGRESS",
+      "changedBy": "c2225dc9-96f0-4e7a-ab09-113e7f776d5f",
+      "createdAt": "2026-09-02T09:00:00",
+      "updatedAt": "2026-09-02T09:00:00"
+    },
+    {
+      "id": "b52a2aad-937e-43e1-97b7-1a16cf397a3c",
+      "proposalId": "c4197a10-20b2-4ad5-933f-2ef8337565e1",
+      "fromStatus": "IN_PROGRESS",
+      "toStatus": "COMPLETED",
+      "changedBy": "c2225dc9-96f0-4e7a-ab09-113e7f776d5f",
+      "createdAt": "2026-10-05T16:00:00",
+      "updatedAt": "2026-10-05T16:00:00"
+    },
+    {
+      "id": "074fa14f-222c-41c4-a3e5-82e189c50ab3",
+      "proposalId": "d501c4b6-ecba-4430-89a0-a40152b0d6bc",
+      "fromStatus": null,
+      "toStatus": "COLLECTING_VOTES",
+      "changedBy": "0bd69764-6100-4f99-b035-d2f3e11f2c5a",
+      "createdAt": "2026-07-06T11:00:00",
+      "updatedAt": "2026-07-06T11:00:00"
+    }
+  ]
+}

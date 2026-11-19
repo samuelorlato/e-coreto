@@ -3,22 +3,26 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>e-Coreto</title>
-  <link rel="stylesheet" href="css/style.css">
+  <title>e-Coreto · Melhorias para o seu bairro</title>
+  <meta name="description" content="Proponha, apoie e acompanhe melhorias no seu bairro. A prefeitura analisa as propostas com mais apoio e responde em público.">
+  <meta name="color-scheme" content="light dark">
+  <meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff">
+  <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#0c0a09">
+  <link rel="icon" type="image/svg+xml" href="./favicon.svg">
+  <script>
+    // Aplica o tema antes da primeira pintura (evita piscar claro→escuro).
+    (function () {
+      try {
+        var t = localStorage.getItem('ecoreto:theme');
+        if (t === 'dark' || (!t && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+          document.documentElement.classList.add('dark');
+        }
+      } catch (e) {}
+    })();
+  </script>
 </head>
 <body>
-  <header>
-    <nav aria-label="Principal">
-      <a href="index.html">Propostas</a>
-    </nav>
-  </header>
-
-  <main>
-    <h1>e-Coreto</h1>
-    <p>TODO: feed de propostas.</p>
-  </main>
-
-  <script src="js/config.js"></script>
-  <script src="js/api.js"></script>
+  <div id="root"></div>
+  <script type="module" src="/src/main.jsx"></script>
 </body>
 </html>
