@@ -37,7 +37,7 @@ As decisões locais costumam ser tomadas sem ouvir quem mora no lugar. Faltam um
 5. Propostas aprovadas seguem para execução e conclusão, com cada mudança de situação registrada.
 
 ### 1.4 Quais tecnologias serão usadas
-Java com acesso a banco via JDBC (camadas Model, DAO, Service e API REST), banco relacional Oracle, API com JAX-RS/Jersey sobre servidor Grizzly e interface web em HTML, CSS e JavaScript, responsiva. Detalhes na [seção 8](#8-visão-técnica).
+Java com acesso a banco via JDBC (camadas Model, DAO, Service e API REST), banco relacional Oracle, API com JAX-RS/Jersey sobre servidor Grizzly e interface web responsiva em React com Tailwind CSS. Detalhes na [seção 8](#8-visão-técnica).
 
 ### 1.5 Quem participa do ecossistema
 - **Moradores**: propõem, votam e acompanham.
@@ -176,7 +176,7 @@ As autoridades podem ajustar estes valores sem alterar o código:
 | Linguagem | Java |
 | Banco de dados | Oracle, acessado via JDBC |
 | API | JAX-RS (`jakarta.ws.rs`) com Jersey, sobre Grizzly HttpServer |
-| Interface | HTML semântico, CSS responsivo, JavaScript (consome a API) |
+| Interface | React 19 + Tailwind CSS 4, com Vite e React Router (consome a API; detalhes em `web/README.md`) |
 
 **Organização do código** (camadas separadas, cada uma no seu pacote):
 
@@ -191,7 +191,7 @@ service/    regras de negócio (limiar de apoio, permissões, transições de st
 tools/      utilitário de seeds
 ```
 
-Frontend fica em `web/` na raiz do projeto.
+Frontend fica em `web/` na raiz do projeto (veja `web/README.md`).
 
 O `script.sql` fica em `database/script.sql`.
 
@@ -209,11 +209,12 @@ Os diagramas estão em [`docs/`](docs/):
 
 > **TODO (preencher antes da entrega):** o README precisa permitir rodar o projeto seguindo só estas instruções.
 
-1. **Pré-requisitos:** `Java 17+`, `Maven 3.6.3+`, acesso a um banco Oracle.
+1. **Pré-requisitos:** `Java 17+`, `Maven 3.6.3+`, acesso a um banco Oracle e `Node.js 20.19+` (interface).
 2. **Configure a conexão** criando o arquivo `src/main/resources/application-local.properties` a partir do `src/main/resources/application-local.properties.example` e troque as variáveis `db.url`, `db.user` e `db.password` para suas credenciais.
 3. **Banco de dados:** `mvn compile exec:java -Dmain.class=br.com.fiap.ecoreto.tools.DatabaseSetup`
 4. **Subir a API:** `mvn compile exec:java`. A API sobe em `http://localhost:8080`.
-5. **Abrir a interface:** abrir `[caminho]/index.html` no navegador.
+5. **Abrir a interface:** em outro terminal, `cd web`, `npm install` e `npm run dev`; depois abra `http://localhost:5173`. A interface conversa com a API do passo 4 (o Vite repassa as chamadas `/api` para a porta 8080).
+   - Sem o back-end/Oracle, dá para usar e apresentar a interface com `npm run dev:demo` (API simulada no navegador, com os dados do `script.sql`). Detalhes em `web/README.md`.
 6. **Contas de demonstração** (senha de todas: `Demo@2026`):
    - Autoridade: `helena.duarte@prefeitura.exemplo.br`
    - Morador: `ana.souza@email.exemplo.br`

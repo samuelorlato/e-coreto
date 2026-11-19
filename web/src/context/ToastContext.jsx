@@ -44,7 +44,7 @@ export function ToastProvider({ children }) {
       {children}
       <div
         aria-live="polite"
-        className="pointer-events-none fixed inset-x-0 bottom-0 z-[60] flex flex-col items-center gap-2 p-4 sm:p-6"
+        className="pointer-events-none fixed inset-x-0 bottom-0 z-[60] flex flex-col items-center gap-2 p-4 sm:items-end sm:p-6"
       >
         {toasts.map((t) => {
           const { icon: Icon, className } = ICONS[t.type];
@@ -52,7 +52,7 @@ export function ToastProvider({ children }) {
             <div
               key={t.id}
               role={t.type === 'error' ? 'alert' : 'status'}
-              className="pointer-events-auto flex w-full max-w-sm animate-fade-up items-start gap-3 rounded-2xl border border-line bg-surface p-4 shadow-xl"
+              className="flex w-full max-w-sm animate-fade-up items-start gap-3 rounded-2xl border border-line bg-surface p-4 shadow-xl"
             >
               <Icon className={cn('mt-0.5 size-5 shrink-0', className)} aria-hidden="true" />
               <div className="min-w-0 flex-1">
@@ -62,7 +62,7 @@ export function ToastProvider({ children }) {
               <button
                 type="button"
                 onClick={() => dismiss(t.id)}
-                className="-m-1 rounded-full p-1 text-fg-subtle hover:text-fg"
+                className="pointer-events-auto -m-1 rounded-full p-1 text-fg-subtle hover:text-fg"
                 aria-label="Fechar aviso"
               >
                 <X className="size-4" />

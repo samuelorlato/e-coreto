@@ -1,7 +1,7 @@
 // Cliente HTTP do e-Coreto (evolução do antigo web/js/api.js).
 // Autenticação: HTTP Basic em toda requisição (não existe rota de login no back-end).
-// Com VITE_USE_MOCK=true (padrão) as chamadas vão para a API simulada em src/mocks;
-// com VITE_USE_MOCK=false vão para a API Java em VITE_API_URL.
+// Padrão: API Java real em VITE_API_URL ("/api", repassado pelo proxy do Vite para a porta 8080).
+// Com VITE_USE_MOCK=true ("npm run dev:demo") as chamadas vão para a API simulada em src/mocks.
 
 export class ApiError extends Error {
   constructor(status, message, details) {
@@ -12,8 +12,8 @@ export class ApiError extends Error {
   }
 }
 
-export const USE_MOCK = import.meta.env.VITE_USE_MOCK !== 'false';
-export const API_BASE_URL = (import.meta.env.VITE_API_URL || 'http://localhost:8080/api').replace(/\/+$/, '');
+export const USE_MOCK = import.meta.env.VITE_USE_MOCK === 'true';
+export const API_BASE_URL = (import.meta.env.VITE_API_URL || '/api').replace(/\/+$/, '');
 
 const STORAGE_KEY = 'ecoreto:credentials';
 
@@ -94,11 +94,11 @@ async function request(method, path, body) {
   if (status >= 200 && status < 300) return status === 204 ? null : data;
 
   if (status === 401 && stored && unauthorizedHandler) unauthorizedHandler();
-  throw new ApiError(
-    status,
-    (data && data.message) || `Erro inesperado (${status}).`,
-    data && data.details,
-  );
+  // A API Java sempre responde erro em JSON ({status, message, details}). Sem JSON, quem respondeu
+  // foi o proxy ou o servidor da hospedagem: quase sempre o back-end não está rodando.
+  const fallback =
+    status >= 500 ? 'Não foi possível falar com a API. Confira se o back-end está rodando.' : `Erro inesperado (${status}).`;
+  throw new ApiError(status, (data && data.message) || fallback, data && data.details);
 }
 
 export const http = {

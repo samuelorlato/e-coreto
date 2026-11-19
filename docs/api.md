@@ -1,6 +1,6 @@
 # API e-Coreto: contrato para o front
 
-Base: `http://localhost:8080/api`. Corpo e resposta em JSON. Toda rota exige `Authorization: Basic base64(email:senha)` (o `web/js/api.js` já faz isso depois de `Api.login(...)`), **exceto** `POST /users`.
+Base: `http://localhost:8080/api`. Corpo e resposta em JSON. Toda rota exige `Authorization: Basic base64(email:senha)` (o `web/src/lib/http.js` já faz isso depois do login), **exceto** `POST /users`.
 
 Erros sempre no formato `{ "status": 409, "message": "...", "details": [] }`. Mostre `message` ao usuário e, se houver, a lista `details` (problemas campo a campo).
 
@@ -8,11 +8,11 @@ Ids são UUID em texto. Datas vêm como `"2026-11-18T17:42:00"`.
 
 ## Login
 
-Não existe rota de login: o front guarda a credencial com `Api.login(email, senha)` e confere chamando `GET /users/me`. Se der 401, a senha está errada → `Api.logout()`.
+Não existe rota de login: o front guarda a credencial (`credentials.save(email, senha)` em `web/src/lib/http.js`) e confere chamando `GET /users/me`. Se der 401, a senha está errada e a credencial é descartada. Isso está pronto em `login()` de `web/src/context/AuthContext.jsx`.
 
 ```js
-Api.login(email, senha);
-try { const me = await Api.get('/users/me'); } catch (e) { if (e.status === 401) Api.logout(); }
+credentials.save(email, senha);
+try { const me = await http.get('/users/me'); } catch (e) { if (e.status === 401) credentials.clear(); }
 ```
 
 ## Usuários

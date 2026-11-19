@@ -1,4 +1,4 @@
-import { useMemo } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { useSearchParams } from 'react-router';
 import { ChevronDown, Plus, Search } from 'lucide-react';
 import { categoriesApi, proposalsApi } from '../services/api';
@@ -20,13 +20,28 @@ export function ProposalsPage() {
   const [params, setParams] = useSearchParams();
   const phase = PHASES.find((p) => p.id === params.get('fase')) || PHASES[0];
   const category = params.get('categoria') || '';
-  const search = params.get('busca') || '';
+  // A busca fica num estado local (resposta imediata ao digitar) e vai para a URL logo depois.
+  // Ler o campo direto da URL perdia letras quando a pessoa digitava rápido.
+  const [search, setSearch] = useState(() => params.get('busca') || '');
 
   const update = (changes) => {
-    const next = new URLSearchParams(params);
-    Object.entries(changes).forEach(([k, v]) => (v ? next.set(k, v) : next.delete(k)));
-    setParams(next, { replace: true });
+    // Forma funcional: parte sempre da URL mais recente (evita sobrescrever mudanças rápidas).
+    setParams(
+      (prev) => {
+        const next = new URLSearchParams(prev);
+        Object.entries(changes).forEach(([k, v]) => (v ? next.set(k, v) : next.delete(k)));
+        return next;
+      },
+      { replace: true },
+    );
   };
+
+  useEffect(() => {
+    if ((params.get('busca') || '') === search.trim()) return undefined;
+    const t = setTimeout(() => update({ busca: search.trim() }), 300);
+    return () => clearTimeout(t);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [search]);
 
   // Arquivadas e categoria são filtros da API; fase e busca são aplicadas aqui (contagem sem nova requisição).
   const archived = Boolean(phase.archived);
@@ -84,7 +99,10 @@ export function ProposalsPage() {
             >
               {ph.label}
               {!ph.archived && proposals.data && !archived && (
-                <span className="ml-1.5 text-fg-subtle tabular-nums">{counts[ph.id]}</span>
+                <>
+                  {' '}
+                  <span className="ml-1 text-fg-subtle tabular-nums">{counts[ph.id]}</span>
+                </>
               )}
             </button>
           );
@@ -99,7 +117,7 @@ export function ProposalsPage() {
             type="search"
             placeholder="Buscar por título, resumo ou autor"
             value={search}
-            onChange={(e) => update({ busca: e.target.value })}
+            onChange={(e) => setSearch(e.target.value)}
             className={cn(fieldClass, 'pr-4 pl-11')}
           />
         </label>
@@ -158,7 +176,13 @@ export function ProposalsPage() {
           }
           action={
             filtering ? (
-              <Button variant="secondary" onClick={() => update({ busca: '', categoria: '' })}>
+              <Button
+                variant="secondary"
+                onClick={() => {
+                  setSearch('');
+                  update({ busca: '', categoria: '' });
+                }}
+              >
                 Limpar busca
               </Button>
             ) : (

@@ -1,14 +1,32 @@
 import { Navigate, useLocation } from 'react-router';
 import { useAuth } from '../context/AuthContext';
 import { EmptyState, PageLoader } from './ui/Feedback';
-import { ButtonLink } from './ui/Button';
+import { Button, ButtonLink } from './ui/Button';
 import { Page } from './ui/Page';
 
 /** Só deixa passar usuários logados; senão manda para o login lembrando a página. */
 export function RequireAuth({ children }) {
-  const { status } = useAuth();
+  const { status, startupError, retry, logout } = useAuth();
   const location = useLocation();
   if (status === 'loading') return <PageLoader label="Verificando sua sessão" />;
+  if (status === 'unavailable') {
+    return (
+      <Page>
+        <EmptyState
+          title="Não foi possível falar com a API"
+          description={startupError?.message}
+          action={
+            <div className="flex gap-2">
+              <Button onClick={retry}>Tentar de novo</Button>
+              <Button variant="ghost" onClick={logout}>
+                Sair
+              </Button>
+            </div>
+          }
+        />
+      </Page>
+    );
+  }
   if (status !== 'authenticated') return <Navigate to="/login" replace state={{ from: location }} />;
   return children;
 }
