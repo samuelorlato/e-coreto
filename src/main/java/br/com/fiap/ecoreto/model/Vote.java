@@ -3,13 +3,11 @@ package br.com.fiap.ecoreto.model;
 import java.time.LocalDateTime;
 import java.util.UUID;
 
-/** Voto de um usuário numa proposta (um por proposta, RN-08). */
 public class Vote extends BaseEntity {
 
     private final UUID userId;
     private final UUID proposalId;
     private VoteType type;
-    /** Endereço do votante no momento do voto (RN-10). */
     private UUID addressId;
 
     public Vote(UUID userId, UUID proposalId, VoteType type, UUID addressId) {
@@ -29,7 +27,6 @@ public class Vote extends BaseEntity {
         this.addressId = addressId;
     }
 
-    /** Muda o voto e registra o endereço atual do votante. */
     public void change(VoteType newType, UUID currentAddressId) {
         this.type = newType;
         this.addressId = currentAddressId;

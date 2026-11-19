@@ -3,13 +3,11 @@ package br.com.fiap.ecoreto.model;
 import java.time.LocalDateTime;
 import java.util.UUID;
 
-/** Resposta oficial de uma autoridade. Imutável: nunca é editada nem apagada (RN-18). */
 public class OfficialResponse extends BaseEntity {
 
     private final UUID proposalId;
     private final UUID createdBy;
     private final String content;
-    /** Situação da proposta quando a resposta foi publicada (RN-19). */
     private final ProposalStatus proposalStatus;
 
     public OfficialResponse(UUID proposalId, UUID createdBy, String content, ProposalStatus proposalStatus) {

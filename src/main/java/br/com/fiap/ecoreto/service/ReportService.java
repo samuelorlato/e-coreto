@@ -8,7 +8,6 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
-/** Indicadores de impacto (README, seção 1.6). Os números vêm de SQL; as taxas são calculadas aqui. */
 public class ReportService {
 
     public List<Map<String, Object>> ranking(Integer limit) {
@@ -28,7 +27,6 @@ public class ReportService {
         return Tx.read(c -> new ReportDao(c).averageTimes());
     }
 
-    /** Sem parâmetro, usa stale_after_days. */
     public List<Map<String, Object>> stale(Integer days) {
         return Tx.read(c -> {
             int d = days != null && days > 0 ? days : Settings.load(c).staleAfterDays();
@@ -68,7 +66,6 @@ public class ReportService {
         return value instanceof Number n ? n.intValue() : 0;
     }
 
-    /** Percentual com 1 casa decimal; 0 quando a base é zero. */
     private static double rate(int part, int total) {
         if (total == 0) {
             return 0;

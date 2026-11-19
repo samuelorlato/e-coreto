@@ -4,7 +4,6 @@ import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.UUID;
 
-/** Parâmetro configurável pelas autoridades (README, seção 6). */
 public class SystemSetting extends BaseEntity {
 
     public static final String QUORUM_PERCENTAGE = "quorum_percentage";

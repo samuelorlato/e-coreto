@@ -5,7 +5,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
-/** Proposta de melhoria criada por um usuário. */
 public class Proposal extends BaseEntity {
 
     private String title;
@@ -17,7 +16,6 @@ public class Proposal extends BaseEntity {
     private UUID archivedBy;
     private List<Category> categories = new ArrayList<>();
 
-    /** Nova proposta: sempre nasce em COLLECTING_VOTES (RN-05). */
     public Proposal(String title, String description, String body, UUID createdBy) {
         super();
         this.title = title;

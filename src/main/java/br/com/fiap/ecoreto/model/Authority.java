@@ -3,7 +3,6 @@ package br.com.fiap.ecoreto.model;
 import java.time.LocalDateTime;
 import java.util.UUID;
 
-/** Autoridade: cadastrada por carga administrativa, nunca pelo autocadastro (RN-01). */
 public class Authority extends User {
 
     private final String jobTitle;

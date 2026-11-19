@@ -10,7 +10,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
-/** Respostas oficiais (RN-17 a RN-19). Não existe editar nem apagar. */
 public class OfficialResponseService {
 
     public List<ResponseView> list(UUID proposalId) {
@@ -25,10 +24,6 @@ public class OfficialResponseService {
         });
     }
 
-    /**
-     * RN-17: só autoridades, e só em propostas Aprovadas, Recusadas, Em execução ou Concluídas.
-     * RN-19: grava a situação da proposta no momento da publicação.
-     */
     public ResponseView publish(User me, UUID proposalId, String content) {
         ProposalService.requireAuthority(me, "Só autoridades podem publicar respostas oficiais.");
         String text = Validator.clean(content);

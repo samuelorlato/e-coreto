@@ -1,6 +1,5 @@
 package br.com.fiap.ecoreto.dao;
 
-/** Contagem de votos de uma proposta (resultado de consulta, não é entidade). */
 public class VoteCount {
 
     private final int inFavor;

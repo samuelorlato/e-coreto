@@ -3,10 +3,6 @@ package br.com.fiap.ecoreto.model;
 import java.time.LocalDateTime;
 import java.util.UUID;
 
-/**
- * Registro de uma mudança de situação (RN-20). Imutável.
- * changedBy nulo significa mudança automática, feita pelo sistema.
- */
 public class ProposalStatusHistory extends BaseEntity {
 
     private final UUID proposalId;

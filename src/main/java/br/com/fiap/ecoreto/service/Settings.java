@@ -9,10 +9,6 @@ import java.sql.SQLException;
 import java.util.HashMap;
 import java.util.Map;
 
-/**
- * Leitura dos parâmetros configuráveis (README, seção 6). Se algum faltar no banco,
- * usa o padrão do README.
- */
 public final class Settings {
 
     private final Map<String, BigDecimal> values;

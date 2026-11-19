@@ -3,10 +3,6 @@ package br.com.fiap.ecoreto.model;
 import java.time.LocalDateTime;
 import java.util.UUID;
 
-/**
- * Usuário da plataforma. É abstrata: na prática é um {@link Resident} ou uma {@link Authority}
- * (o UserDao decide pela coluna role).
- */
 public abstract class User extends BaseEntity {
 
     private String firstName;
@@ -73,7 +69,6 @@ public abstract class User extends BaseEntity {
         return address;
     }
 
-    /** Troca o endereço atual (o endereço antigo continua no banco). */
     public void moveTo(Address newAddress) {
         this.address = newAddress;
     }

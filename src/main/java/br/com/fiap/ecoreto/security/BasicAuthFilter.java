@@ -15,13 +15,6 @@ import java.nio.charset.StandardCharsets;
 import java.util.Base64;
 import java.util.Optional;
 
-/**
- * Autenticação HTTP Basic: toda requisição envia
- * {@code Authorization: Basic base64(email:senha)}.
- *
- * <p>Liberadas sem credencial: requisições OPTIONS (preflight de CORS) e POST /users (cadastro).
- * Na falha devolve 401 SEM o header WWW-Authenticate, para o navegador não abrir a janela nativa de login.
- */
 @Provider
 @Priority(Priorities.AUTHENTICATION)
 public class BasicAuthFilter implements ContainerRequestFilter {

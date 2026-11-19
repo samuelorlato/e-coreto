@@ -11,7 +11,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
-/** Histórico de situações (RN-20). Imutável: só insert e consulta. */
 public class ProposalStatusHistoryDao {
 
     private final Connection connection;

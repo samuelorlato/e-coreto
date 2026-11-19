@@ -3,7 +3,6 @@ package br.com.fiap.ecoreto.service;
 import br.com.fiap.ecoreto.dao.VoteCount;
 import br.com.fiap.ecoreto.model.Proposal;
 
-/** Proposta pronta para exibir: a entidade + nome do autor + contagem de votos. */
 public class ProposalView {
 
     private final Proposal proposal;

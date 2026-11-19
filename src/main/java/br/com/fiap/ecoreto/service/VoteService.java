@@ -21,17 +21,12 @@ import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 
-/** Votação e limiar de apoio (RN-08 a RN-13). */
 public class VoteService {
 
     public VoteSummary summary(User me, UUID proposalId) {
         return Tx.read(c -> buildSummary(c, ProposalService.load(c, proposalId), me));
     }
 
-    /**
-     * RN-08: um voto por usuário e proposta. Se já votou, altera o voto (RN-09).
-     * Depois de gravar, confere o limiar na mesma transação (RN-12).
-     */
     public VoteSummary vote(User me, UUID proposalId, VoteType type) {
         if (type == null) {
             throw new ValidationException("Informe o voto.", List.of("type deve ser IN_FAVOR ou AGAINST."));
@@ -41,7 +36,6 @@ public class VoteService {
             requireVotingOpen(proposal);
 
             VoteDao votes = new VoteDao(c);
-            // RN-10: grava o endereço atual do votante
             UUID addressId = me.getAddress().getId();
             Optional<Vote> existing = votes.findByUserAndProposal(me.getId(), proposalId);
             if (existing.isPresent()) {
@@ -57,7 +51,6 @@ public class VoteService {
         });
     }
 
-    /** RN-09: retirar o voto, também só enquanto a votação está aberta. */
     public VoteSummary removeVote(User me, UUID proposalId) {
         return Tx.write(c -> {
             Proposal proposal = ProposalService.load(c, proposalId);
@@ -82,10 +75,6 @@ public class VoteService {
         }
     }
 
-    /**
-     * RN-11 e RN-12: ao atingir o limiar, a proposta passa sozinha para "Aguardando análise"
-     * e não volta atrás. O histórico registra a mudança como feita pelo sistema (changedBy nulo, RN-20).
-     */
     private void checkThreshold(Connection c, Proposal proposal) throws SQLException {
         if (proposal.getStatus() != ProposalStatus.COLLECTING_VOTES) {
             return;
@@ -115,7 +104,6 @@ public class VoteService {
                 settings.approvalPercentage().doubleValue(),
                 VoteThresholdPolicy.hasQuorum(count, residents, settings),
                 VoteThresholdPolicy.hasMajority(count, settings),
-                // RN-12: depois que saiu de "Coletando apoio", o limiar conta como atingido para sempre
                 proposal.getStatus() != ProposalStatus.COLLECTING_VOTES,
                 !proposal.isArchived() && proposal.getStatus().isVotingOpen(),
                 myVote);

@@ -3,7 +3,6 @@ package br.com.fiap.ecoreto.security;
 import br.com.fiap.ecoreto.model.User;
 import jakarta.ws.rs.core.SecurityContext;
 
-/** SecurityContext da requisição, com o usuário que o BasicAuthFilter validou. */
 public class AuthenticatedSecurityContext implements SecurityContext {
 
     private final UserPrincipal principal;

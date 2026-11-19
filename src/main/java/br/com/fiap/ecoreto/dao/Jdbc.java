@@ -8,10 +8,6 @@ import java.sql.Types;
 import java.time.LocalDateTime;
 import java.util.UUID;
 
-/**
- * Conversões repetidas entre Java e JDBC (UUID ↔ VARCHAR2, LocalDateTime ↔ TIMESTAMP),
- * já tratando valores nulos.
- */
 final class Jdbc {
 
     private Jdbc() {

@@ -9,7 +9,6 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.UUID;
 
-/** Busca nomes de usuários para exibição, sem repetir a mesma consulta na mesma operação. */
 final class UserNames {
 
     static final String SYSTEM = "Sistema";
@@ -21,7 +20,6 @@ final class UserNames {
         this.users = new UserDao(c);
     }
 
-    /** Nome completo do usuário; "Sistema" quando o id é nulo (mudança automática, RN-20). */
     String of(UUID userId) throws SQLException {
         if (userId == null) {
             return SYSTEM;

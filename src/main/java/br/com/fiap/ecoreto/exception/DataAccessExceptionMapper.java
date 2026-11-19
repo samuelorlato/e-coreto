@@ -4,7 +4,6 @@ import jakarta.ws.rs.core.Response;
 import jakarta.ws.rs.ext.ExceptionMapper;
 import jakarta.ws.rs.ext.Provider;
 
-/** Erro de banco: registra no console e devolve mensagem genérica (nunca o texto do Oracle). */
 @Provider
 public class DataAccessExceptionMapper implements ExceptionMapper<DataAccessException> {
 

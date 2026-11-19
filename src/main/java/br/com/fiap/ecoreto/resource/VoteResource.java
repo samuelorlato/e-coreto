@@ -30,7 +30,6 @@ public class VoteResource {
                 Params.pathId(id, ProposalResource.NOT_FOUND)));
     }
 
-    /** Cria ou altera o voto do usuário logado. Corpo: { "type": "IN_FAVOR" } ou "AGAINST". */
     @PUT
     @Path("me")
     public VoteSummaryResponse vote(@Context SecurityContext security, @PathParam("id") String id,
@@ -40,7 +39,6 @@ public class VoteResource {
                 Params.pathId(id, ProposalResource.NOT_FOUND), type));
     }
 
-    /** Retira o voto. Devolve o placar atualizado. */
     @DELETE
     @Path("me")
     public VoteSummaryResponse remove(@Context SecurityContext security, @PathParam("id") String id) {

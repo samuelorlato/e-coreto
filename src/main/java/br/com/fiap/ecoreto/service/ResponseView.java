@@ -2,7 +2,6 @@ package br.com.fiap.ecoreto.service;
 
 import br.com.fiap.ecoreto.model.OfficialResponse;
 
-/** Resposta oficial + nome da autoridade que publicou. */
 public class ResponseView {
 
     private final OfficialResponse response;

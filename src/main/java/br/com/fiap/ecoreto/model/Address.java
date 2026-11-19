@@ -3,10 +3,6 @@ package br.com.fiap.ecoreto.model;
 import java.time.LocalDateTime;
 import java.util.UUID;
 
-/**
- * Endereço. É imutável: mudar de endereço cria um registro novo, assim o voto
- * continua apontando para o endereço do momento em que foi dado (RN-10).
- */
 public class Address extends BaseEntity {
 
     private final String street;

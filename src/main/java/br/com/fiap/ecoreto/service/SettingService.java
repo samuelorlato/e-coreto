@@ -8,7 +8,6 @@ import br.com.fiap.ecoreto.model.User;
 import java.math.BigDecimal;
 import java.util.List;
 
-/** Parâmetros configuráveis (README, seção 6). Só autoridades alteram. */
 public class SettingService {
 
     private static final BigDecimal HUNDRED = BigDecimal.valueOf(100);
@@ -53,7 +52,6 @@ public class SettingService {
                                     && value.compareTo(BigDecimal.TEN) <= 0,
                             "O máximo de categorias deve ser um inteiro entre 1 e 10.");
             default -> {
-                // chave desconhecida: o update devolve 404
             }
         }
         v.throwIfInvalid();

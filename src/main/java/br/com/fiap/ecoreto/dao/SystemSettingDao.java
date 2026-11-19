@@ -10,7 +10,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
-/** Parâmetros: vêm do seed do script.sql, então aqui só há consulta e update. */
 public class SystemSettingDao {
 
     private final Connection connection;

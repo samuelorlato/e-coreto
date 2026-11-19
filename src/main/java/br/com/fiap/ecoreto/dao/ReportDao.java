@@ -11,10 +11,6 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
-/**
- * Consultas dos indicadores de impacto (README, seção 1.6). Só leitura.
- * Cada linha volta como um Map com as colunas em camelCase (ex.: in_favor → inFavor).
- */
 public class ReportDao {
 
     private final Connection connection;
@@ -23,7 +19,6 @@ public class ReportDao {
         this.connection = connection;
     }
 
-    /** Propostas ativas com mais apoio. */
     public List<Map<String, Object>> ranking(int limit) throws SQLException {
         String sql = "SELECT p.id, p.title, p.status, "
                 + "NVL(SUM(CASE WHEN v.vote_type = 'IN_FAVOR' THEN 1 ELSE 0 END), 0) in_favor, "
@@ -37,7 +32,6 @@ public class ReportDao {
         return query(sql, limit);
     }
 
-    /** Votos por região, usando o endereço do momento do voto (RN-10). */
     public List<Map<String, Object>> votesByRegion() throws SQLException {
         String sql = "SELECT a.zip_code, a.street, a.neighborhood, COUNT(*) total_votes, "
                 + "SUM(CASE WHEN v.vote_type = 'IN_FAVOR' THEN 1 ELSE 0 END) in_favor, "
@@ -48,7 +42,6 @@ public class ReportDao {
         return query(sql);
     }
 
-    /** Quantidade de propostas e de votos por categoria. */
     public List<Map<String, Object>> byCategory() throws SQLException {
         String sql = "SELECT c.id, c.name, COUNT(DISTINCT pc.proposal_id) proposals, COUNT(v.id) total_votes "
                 + "FROM categories c "
@@ -59,7 +52,6 @@ public class ReportDao {
         return query(sql);
     }
 
-    /** Tempo médio, em dias, da criação até cada marco da jornada. */
     public Map<String, Object> averageTimes() throws SQLException {
         String days = "CAST(h.created_at AS DATE) - CAST(p.created_at AS DATE)";
         String sql = "SELECT "
@@ -71,7 +63,6 @@ public class ReportDao {
         return query(sql).get(0);
     }
 
-    /** Propostas ativas que estão coletando apoio há mais de N dias (candidatas a arquivar, RN-16). */
     public List<Map<String, Object>> stale(int days) throws SQLException {
         String sql = "SELECT p.id, p.title, p.created_at, "
                 + "TRUNC(CAST(SYSTIMESTAMP AS DATE) - CAST(p.created_at AS DATE)) days_open "
@@ -82,7 +73,6 @@ public class ReportDao {
         return query(sql, days);
     }
 
-    /** Contagens brutas dos indicadores de participação. O service calcula as taxas. */
     public Map<String, Object> participationCounts() throws SQLException {
         String sql = "SELECT "
                 + "(SELECT COUNT(*) FROM users WHERE role = 'RESIDENT') residents, "
@@ -123,7 +113,6 @@ public class ReportDao {
         }
     }
 
-    /** Oracle devolve o nome da coluna em maiúsculas: IN_FAVOR → inFavor. */
     private static String toCamelCase(String column) {
         String[] parts = column.toLowerCase().split("_");
         StringBuilder sb = new StringBuilder(parts[0]);

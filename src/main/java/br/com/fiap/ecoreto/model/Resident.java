@@ -3,7 +3,6 @@ package br.com.fiap.ecoreto.model;
 import java.time.LocalDateTime;
 import java.util.UUID;
 
-/** Morador: entra pelo cadastro público (RN-01). */
 public class Resident extends User {
 
     public Resident(String firstName, String lastName, String email,

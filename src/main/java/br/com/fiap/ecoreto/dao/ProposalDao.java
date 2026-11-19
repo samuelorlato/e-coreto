@@ -13,10 +13,6 @@ import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 
-/**
- * Propostas e a tabela de ligação proposal_categories.
- * Nada é apagado de verdade: arquivar é preencher archived_at/archived_by (soft delete).
- */
 public class ProposalDao {
 
     private final Connection connection;
@@ -60,7 +56,6 @@ public class ProposalDao {
         }
     }
 
-    /** Substitui as categorias da proposta pelas informadas. */
     public void replaceCategories(UUID proposalId, List<Category> categories) throws SQLException {
         try (PreparedStatement del = connection.prepareStatement(
                 "DELETE FROM proposal_categories WHERE proposal_id = ?")) {
@@ -88,11 +83,6 @@ public class ProposalDao {
         }
     }
 
-    /**
-     * Lista propostas com filtros opcionais (null = sem filtro).
-     *
-     * @param archived false = só ativas (archived_at IS NULL); true = só arquivadas
-     */
     public List<Proposal> list(ProposalStatus status, UUID categoryId, boolean archived) throws SQLException {
         StringBuilder sql = new StringBuilder("SELECT p.* FROM proposals p WHERE ");
         sql.append(archived ? "p.archived_at IS NOT NULL" : "p.archived_at IS NULL");

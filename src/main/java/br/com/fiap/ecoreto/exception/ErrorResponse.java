@@ -5,10 +5,6 @@ import jakarta.ws.rs.core.Response;
 
 import java.util.List;
 
-/**
- * Corpo JSON padrão de erro: { "status": 409, "message": "...", "details": [] }.
- * Os campos são públicos para o JSON-B serializar.
- */
 public class ErrorResponse {
 
     public int status;

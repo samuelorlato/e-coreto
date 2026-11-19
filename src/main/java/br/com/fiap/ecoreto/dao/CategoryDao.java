@@ -97,7 +97,6 @@ public class CategoryDao {
         }
     }
 
-    /** RN-07: categoria usada por alguma proposta não pode ser editada nem removida. */
     public boolean isInUse(UUID id) throws SQLException {
         String sql = "SELECT COUNT(*) FROM proposal_categories WHERE category_id = ?";
         try (PreparedStatement ps = connection.prepareStatement(sql)) {

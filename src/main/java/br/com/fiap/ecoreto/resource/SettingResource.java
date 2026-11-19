@@ -28,7 +28,6 @@ public class SettingResource {
         return service.list().stream().map(SettingResponse::from).toList();
     }
 
-    /** PUT /settings/quorum_percentage com { "value": 15 }. Só autoridades. */
     @PUT
     @Path("{key}")
     public SettingResponse update(@Context SecurityContext security, @PathParam("key") String key,

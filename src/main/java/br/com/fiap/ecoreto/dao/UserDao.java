@@ -13,10 +13,6 @@ import java.sql.SQLException;
 import java.util.Optional;
 import java.util.UUID;
 
-/**
- * Usuários. Lê a coluna role e instancia Resident ou Authority (mapeamento de herança).
- * O endereço atual vem junto, por JOIN.
- */
 public class UserDao {
 
     private static final String SELECT_WITH_ADDRESS =
@@ -53,7 +49,6 @@ public class UserDao {
         }
     }
 
-    /** Grava a troca de endereço (único dado do usuário alterável nesta versão). */
     public void updateAddress(User u) throws SQLException {
         u.touch();
         String sql = "UPDATE users SET address_id = ?, updated_at = ? WHERE id = ?";
@@ -69,7 +64,6 @@ public class UserDao {
         return findOne(SELECT_WITH_ADDRESS + "WHERE u.id = ?", id.toString());
     }
 
-    /** O e-mail é sempre gravado em minúsculas (CHECK ck_users_email_lower). */
     public Optional<User> findByEmail(String email) throws SQLException {
         return findOne(SELECT_WITH_ADDRESS + "WHERE u.email = ?", email.toLowerCase());
     }
@@ -85,7 +79,6 @@ public class UserDao {
         }
     }
 
-    /** Total de moradores cadastrados, base do quórum dinâmico (RN-13). */
     public int countResidents() throws SQLException {
         String sql = "SELECT COUNT(*) FROM users WHERE role = ?";
         try (PreparedStatement ps = connection.prepareStatement(sql)) {

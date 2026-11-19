@@ -5,10 +5,6 @@ import jakarta.ws.rs.core.Response;
 import jakarta.ws.rs.ext.ExceptionMapper;
 import jakarta.ws.rs.ext.Provider;
 
-/**
- * Erros que o próprio Jersey lança (rota inexistente, método não permitido, JSON malformado...).
- * Mantém o status original e troca a mensagem por uma em português no formato padrão.
- */
 @Provider
 public class WebApplicationExceptionMapper implements ExceptionMapper<WebApplicationException> {
 

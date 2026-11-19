@@ -12,12 +12,10 @@ import br.com.fiap.ecoreto.security.PasswordHasher;
 import java.util.Optional;
 import java.util.UUID;
 
-/** Cadastro, autenticação e endereço dos usuários (RN-01 a RN-03). */
 public class UserService {
 
     private static final int MIN_PASSWORD = 8;
 
-    /** Usado pelo BasicAuthFilter. Devolve vazio se o e-mail não existe ou a senha não confere. */
     public Optional<User> authenticate(String email, String password) {
         if (email == null || email.isBlank() || password == null) {
             return Optional.empty();
@@ -26,10 +24,6 @@ public class UserService {
         return user.filter(u -> PasswordHasher.matches(password, u.getPasswordSalt(), u.getPasswordHash()));
     }
 
-    /**
-     * RN-01: o cadastro público cria sempre um morador. Autoridades só entram por carga administrativa.
-     * RN-02: e-mail único (em minúsculas) e senha guardada só como hash + sal.
-     */
     public User registerResident(String firstName, String lastName, String email,
                                  String password, Address address) {
         String cleanFirst = Validator.clean(firstName);
@@ -65,10 +59,6 @@ public class UserService {
                 .orElseThrow(() -> new NotFoundException("Usuário não encontrado."));
     }
 
-    /**
-     * Troca o endereço do usuário logado. O endereço é imutável: grava um novo registro
-     * e os votos antigos continuam com o endereço da época (RN-10).
-     */
     public User changeAddress(User me, Address newAddress) {
         Validator v = new Validator();
         validateAddress(v, newAddress);
@@ -82,7 +72,6 @@ public class UserService {
         });
     }
 
-    /** RN-03: todo usuário tem endereço completo. Limites iguais aos do script.sql. */
     static void validateAddress(Validator v, Address a) {
         if (a == null) {
             v.check(false, "Endereço é obrigatório.");

@@ -12,10 +12,6 @@ import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 
-/**
- * RN-07: qualquer usuário cria categorias. O nome é único sem distinguir maiúsculas nem acentos
- * (garantido pelo slug). Só o criador ou uma autoridade edita/remove, e só se nenhuma proposta usa.
- */
 public class CategoryService {
 
     public List<Category> list() {
@@ -82,7 +78,6 @@ public class CategoryService {
         return clean.replaceAll("\\s+", " ");
     }
 
-    /** "Saúde Pública!" → "saude-publica". Mesmo formato do CHECK ck_categories_slug. */
     static String toSlug(String name) {
         String noAccents = Normalizer.normalize(name, Normalizer.Form.NFD).replaceAll("\\p{M}", "");
         return noAccents.toLowerCase()

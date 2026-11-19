@@ -27,7 +27,6 @@ public class UserResource {
 
     private final UserService service = new UserService();
 
-    /** Cadastro público de morador (liberado no BasicAuthFilter). */
     @POST
     public Response register(RegisterRequest body) {
         if (body == null) {
@@ -38,7 +37,6 @@ public class UserResource {
         return Response.status(Response.Status.CREATED).entity(UserResponse.from(created)).build();
     }
 
-    /** Dados do usuário logado. O front usa também para conferir o login. */
     @GET
     @Path("me")
     public UserResponse me(@Context SecurityContext security) {

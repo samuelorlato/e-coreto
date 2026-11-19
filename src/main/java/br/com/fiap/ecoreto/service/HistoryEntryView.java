@@ -2,7 +2,6 @@ package br.com.fiap.ecoreto.service;
 
 import br.com.fiap.ecoreto.model.ProposalStatusHistory;
 
-/** Linha do histórico + nome de quem mudou ("Sistema" nas mudanças automáticas). */
 public class HistoryEntryView {
 
     private final ProposalStatusHistory entry;

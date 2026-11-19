@@ -2,10 +2,6 @@ package br.com.fiap.ecoreto.service;
 
 import br.com.fiap.ecoreto.model.VoteType;
 
-/**
- * Placar de uma proposta. Os votos individuais não são expostos (README, seção 7):
- * só os totais e o voto do próprio usuário.
- */
 public class VoteSummary {
 
     private final int inFavor;

@@ -23,7 +23,6 @@ import java.util.List;
 import java.util.Set;
 import java.util.UUID;
 
-/** Propostas: criação, edição, mudança de situação, arquivamento e histórico (RN-04 a RN-06, RN-14 a RN-16, RN-20). */
 public class ProposalService {
 
     public List<ProposalView> list(ProposalStatus status, UUID categoryId, boolean archived) {
@@ -41,7 +40,6 @@ public class ProposalService {
         return Tx.read(c -> toView(c, load(c, id), new UserNames(c)));
     }
 
-    /** RN-04 e RN-05: qualquer usuário cria; nasce em "Coletando apoio" com 1 a N categorias. */
     public ProposalView create(User me, String title, String description, String body, List<UUID> categoryIds) {
         String t = Validator.clean(title);
         String d = Validator.clean(description);
@@ -62,7 +60,6 @@ public class ProposalService {
         });
     }
 
-    /** RN-06: só o autor edita, e só enquanto a proposta coleta apoio. */
     public ProposalView edit(User me, UUID id, String title, String description, String body,
                              List<UUID> categoryIds) {
         String t = Validator.clean(title);
@@ -89,11 +86,6 @@ public class ProposalService {
         });
     }
 
-    /**
-     * RN-14: só autoridades mudam a situação, seguindo o fluxo.
-     * RN-15: recusar só depois do limiar, e a recusa arquiva automaticamente.
-     * RN-20: grava o histórico na mesma transação.
-     */
     public ProposalView changeStatus(User me, UUID id, ProposalStatus target) {
         requireAuthority(me, "Só autoridades podem mudar a situação de uma proposta.");
         if (target == null) {
@@ -120,7 +112,6 @@ public class ProposalService {
         });
     }
 
-    /** RN-16: autoridade arquiva proposta que não atingiu o limiar depois de stale_after_days dias. */
     public ProposalView archive(User me, UUID id) {
         requireAuthority(me, "Só autoridades podem arquivar propostas.");
 
@@ -156,8 +147,6 @@ public class ProposalService {
         });
     }
 
-    // ---------------------------------------------------------------- auxiliares
-
     static Proposal load(Connection c, UUID id) throws SQLException {
         Proposal proposal = new ProposalDao(c).findById(id)
                 .orElseThrow(() -> new NotFoundException("Proposta não encontrada."));
@@ -186,7 +175,6 @@ public class ProposalService {
                 .throwIfInvalid();
     }
 
-    /** RN-04: de 1 a max_categories_per_proposal categorias, todas existentes, sem repetir. */
     private List<Category> loadCategories(Connection c, List<UUID> ids) throws SQLException {
         int max = Settings.load(c).maxCategoriesPerProposal();
         Set<UUID> unique = new LinkedHashSet<>();

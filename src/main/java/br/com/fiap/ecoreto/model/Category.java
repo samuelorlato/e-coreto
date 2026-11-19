@@ -3,7 +3,6 @@ package br.com.fiap.ecoreto.model;
 import java.time.LocalDateTime;
 import java.util.UUID;
 
-/** Categoria de proposta. O slug garante nome único sem maiúsculas nem acentos (RN-07). */
 public class Category extends BaseEntity {
 
     private String name;

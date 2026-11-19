@@ -17,7 +17,6 @@ import jakarta.ws.rs.core.SecurityContext;
 
 import java.util.List;
 
-/** Respostas oficiais. Não há PUT nem DELETE de propósito (RN-18). */
 @Path("proposals/{id}/responses")
 @Produces(MediaType.APPLICATION_JSON)
 @Consumes(MediaType.APPLICATION_JSON)

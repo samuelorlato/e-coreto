@@ -11,7 +11,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
-/** Respostas oficiais são imutáveis (RN-18): só insert e consulta. */
 public class OfficialResponseDao {
 
     private final Connection connection;

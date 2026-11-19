@@ -6,10 +6,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.regex.Pattern;
 
-/**
- * Junta os erros de validação de vários campos e lança uma ValidationException (400) com todos em details.
- * Lembrete do Oracle: string vazia vira NULL, por isso obrigatório = não nulo e não em branco.
- */
 final class Validator {
 
     private static final Pattern EMAIL = Pattern.compile("^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$");
@@ -61,7 +57,6 @@ final class Validator {
         }
     }
 
-    /** Remove espaços das pontas; devolve null se ficar vazio. */
     static String clean(String value) {
         if (value == null) {
             return null;

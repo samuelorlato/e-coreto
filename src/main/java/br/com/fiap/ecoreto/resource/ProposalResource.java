@@ -33,7 +33,6 @@ public class ProposalResource {
 
     private final ProposalService service = new ProposalService();
 
-    /** GET /proposals?status=COLLECTING_VOTES&category={id}&archived=false (todos opcionais). */
     @GET
     public List<ProposalResponse> list(@QueryParam("status") String status,
                                        @QueryParam("category") String category,
@@ -67,7 +66,6 @@ public class ProposalResource {
                 b.title, b.description, b.body, Params.ids(b.categoryIds, "categoryIds")));
     }
 
-    /** Corpo: { "status": "UNDER_REVIEW" }. Só autoridades. */
     @POST
     @Path("{id}/status")
     public ProposalResponse changeStatus(@Context SecurityContext security, @PathParam("id") String id,
@@ -77,7 +75,6 @@ public class ProposalResource {
                 service.changeStatus(CurrentUser.from(security), Params.pathId(id, NOT_FOUND), target));
     }
 
-    /** Arquivamento manual (RN-16). Só autoridades. O front envia corpo vazio {}. */
     @POST
     @Path("{id}/archive")
     public ProposalResponse archive(@Context SecurityContext security, @PathParam("id") String id) {

@@ -9,7 +9,6 @@ import java.sql.SQLException;
 import java.util.Optional;
 import java.util.UUID;
 
-/** Endereços são imutáveis: só insert e consulta (sem update nem delete). */
 public class AddressDao {
 
     private final Connection connection;
@@ -49,10 +48,6 @@ public class AddressDao {
         }
     }
 
-    /**
-     * Monta um Address a partir do ResultSet. O prefixo permite reaproveitar
-     * em consultas com JOIN (ex.: colunas "a_street").
-     */
     static Address map(ResultSet rs, String prefix) throws SQLException {
         return new Address(
                 Jdbc.getUuid(rs, prefix + "id"),
