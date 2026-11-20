@@ -323,4 +323,4 @@ Todo código e texto gerado com apoio de IA foi lido, testado, revisado e compre
     - RM 565879 - Jhonatan Talaveiro Pacheco
     - RM 561510 - Nathan de Melo Soares
     - RM 563597 - Davyd Neves Evangelista da Silva
-- **Vídeo pitch:** `[link público]`
+- **Vídeo pitch:** https://www.youtube.com/watch?v=sPpOCyvBtTQ
